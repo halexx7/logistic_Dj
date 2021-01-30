@@ -145,3 +145,7 @@ cython_debug/
 
 # Local History for Visual Studio Code
 .history/
+
+# Docker files
+docker-compose.yml
+Dockerfile
