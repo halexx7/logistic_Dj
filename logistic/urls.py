@@ -9,4 +9,6 @@ urlpatterns =[
     path("blog/", mainapp.blog),
     path("text/", mainapp.text),
     path("text2/", mainapp.text2),
+    path("services/", mainapp.services),
+    path("contact/", mainapp.contact),
 ]

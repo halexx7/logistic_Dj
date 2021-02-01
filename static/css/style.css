@@ -4905,3 +4905,130 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
 .text a:hover {
     text-decoration: underline;
 }
+
+.intro--services {
+    height: 350px;
+    background: #000 url("../img/services-bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+@media (max-width: 991px) {
+    .intro--services {
+        height: 250px;
+    }
+}
+
+.intro__services {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.services__items {
+    padding: 20px;
+}
+
+.services__items:hover {
+    border: #b3b3b3 2px solid;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 5px 13px rgba(0, 0, 0, 0.16);
+    box-shadow: 10px 5px 13px rgba(0, 0, 0, 0.16);
+}
+
+.services__photo {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.intro__services-lifting {
+    margin: 30px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.intro__services-icon {
+    width: 30px;
+    margin-right: 7px;
+}
+
+.intro__services-text {
+    margin: 0;
+    font-size: 18px;
+}
+
+.wrap__btn {
+    width: 100%;
+    margin-top: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.btn--order {
+    max-width: 180px;
+}
+
+.intro--contact {
+    height: 350px;
+    background: #000 url("../img/cont_bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+@media (max-width: 991px) {
+    .intro--contact {
+        height: 250px;
+    }
+}
+
+.contact__cart-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.cart {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 30px 70px;
+    margin: 20px;
+    border: #000 2px solid;
+}
+
+.contact__img {
+    width: 35px;
+}
+
+.contact__city {
+    font-size: 36px;
+}
+
+.contact__title {
+    font-size: 16px;
+    color: gray;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.contact__data {
+    font-size: 16px;
+    text-align: center;
+}

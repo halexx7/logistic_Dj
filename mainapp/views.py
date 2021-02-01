@@ -12,5 +12,14 @@ def blog(request):
 def text(request):
     return render(request, "mainapp/text.html")
 
+
 def text2(request):
     return render(request, "mainapp/text-2.html")
+
+
+def services(request):
+    return render(request, "mainapp/services.html")
+
+
+def contact(request):
+    return render(request, "mainapp/contact.html")
