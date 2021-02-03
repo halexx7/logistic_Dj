@@ -19,87 +19,29 @@
                 <h1 class="section__title"><span class="section__title-blue">Contacts</span> Up</h1>
         
                 <div class="contact__content">
-        
                     <div class="contact__cart-box">
-        
-                        <div class="cart">
-        
-                            <img class="contact__img  img" src="/static/img/wheel.svg" alt="Wheel">
-        
-                            <h2 class="contact__city">Moscow</h2>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">TELEPHONE</h3>
-                                <p class="contact__data">+7 (999) 999-99-99</p>
+
+                        {% for contact in contacts %}
+                            <div class="cart">
+                                <img class="contact__img  img" src="/static/img/wheel.svg" alt="Wheel">
+                                <h2 class="contact__city">{{ contact.city }}</h2>
+                                <div class="contact__item">
+                                    <h3 class="contact__title">TELEPHONE</h3>
+                                    <p class="contact__data">{{ contact.phone }}</p>
+                                </div>
+                                <div class="contact__item">
+                                    <h3 class="contact__title">EMAIL</h3>
+                                    <p class="contact__data">{{ contact.email }}</p>
+                                </div>
+                                <div class="contact__item">
+                                    <h3 class="contact__title">ADDRESS</h3>
+                                    <p class="contact__data">{{ contact.address }}</p>
+                                </div>
                             </div>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">EMAIL</h3>
-                                <p class="contact__data">shop@logistic.com</p>
-                            </div>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">ADDRESS</h3>
-                                <p class="contact__data">st. Tverskaya 100</p>
-                            </div>
-        
-                        </div>
-        
-                        <div class="cart">
-        
-                            <img class="contact__img  img" src="/static/img/wheel.svg" alt="Wheel">
-        
-                            <h2 class="contact__city">Moscow</h2>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">TELEPHONE</h3>
-                                <p class="contact__data">+7 (999) 999-99-99</p>
-                            </div>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">EMAIL</h3>
-                                <p class="contact__data">shop@logistic.com</p>
-                            </div>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">ADDRESS</h3>
-                                <p class="contact__data">st. Tverskaya 100</p>
-                            </div>
-        
-                        </div>
-        
-                        <div class="cart">
-        
-                            <img class="contact__img  img" src="/static/img/wheel.svg" alt="Wheel">
-        
-                            <h2 class="contact__city">Moscow</h2>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">TELEPHONE</h3>
-                                <p class="contact__data">+7 (999) 999-99-99</p>
-                            </div>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">EMAIL</h3>
-                                <p class="contact__data">shop@logistic.com</p>
-                            </div>
-        
-                            <div class="contact__item">
-                                <h3 class="contact__title">ADDRESS</h3>
-                                <p class="contact__data">st. Tverskaya 100</p>
-                            </div>
-        
-                        </div>
-        
+                        {% endfor %}
+                            
                     </div>
-        
                 </div>
-        
-        <!--
-                <a class="btn btn--orange" href="/">
-                    <span>Back to home</span>
-                </a>
-        -->
         
             </div><!-- /.container -->
         </section>

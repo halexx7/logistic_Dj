@@ -20,51 +20,23 @@
             <h2 class="section__title"><span class="section__title-blue">Our</span> car fleet</h2>
     
             <div class="team  intro__services">
-                <div class="team__col">
-                    <div class="team__items  services__items" data-aos="fade-in">
-                        <img class="team__photo  img  services__photo" src="/static/img/services/gazel.jpg" alt="">
-                        <div class="team__name">Gazel NEXT</div>
-                        <div class="team__prof">The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods</div>
-                        <div class="intro__services-lifting">
-                            <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
-                            <p class="intro__services-text">5 tons</p>
-                        </div>
-                        <div class="wrap__btn">
-                            <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
-                        </div>
-                    </div><!-- /.team__items -->
-                </div><!-- /.team__col -->
-    
-                <div class="team__col">
-                    <div class="team__items  services__items"  data-aos="fade-in" data-aos-delay="100">
-                        <img class="team__photo img  services__photo" src="/static/img/services/volvo_5.jpg" alt="">
-                        <div class="team__name">Volvo FE350</div>
-                        <div class="team__prof">The new generation of Volvo FL distribution trucks for intercity and short regional transport road tests using special methods</div>
-                        <div class="intro__services-lifting">
-                            <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
-                            <p class="intro__services-text">10 tons</p>
-                        </div>
-                        <div class="wrap__btn">
-                            <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
-                        </div>
-                    </div><!-- /.team__items -->
-                </div><!-- /.team__col -->
-    
-                <div class="team__col">
-                    <div class="team__items  services__items"  data-aos="fade-in" data-aos-delay="200">
-                        <img class="team__photo img  services__photo" src="/static/img/services/volvo_10.jpg" alt="">
-                        <div class="team__name">Volvo FH550</div>
-                        <div class="team__prof">
-                            New generation features offered in the FH versions and the flagship FH16: a completely new, more spacious and comfortable</div>
-                        <div class="intro__services-lifting">
-                            <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
-                            <p class="intro__services-text">40 tons</p>
-                        </div>
-                        <div class="wrap__btn">
-                            <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
-                        </div>
-                    </div><!-- /.team__items -->
-                </div><!-- /.team__col -->
+
+                {% for service in services %}
+                    <div class="team__col">
+                        <div class="team__items  services__items" data-aos="fade-in">
+                            <img class="team__photo  img  services__photo" src="{{ service.services_img }}" alt="{{ service.alt }}">
+                            <div class="team__name">{{ service.name }}</div>
+                            <div class="team__prof">{{ service.desc }}</div>
+                            <div class="intro__services-lifting">
+                                <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
+                                <p class="intro__services-text">{{ service.lifting }}</p>
+                            </div>
+                            <div class="wrap__btn">
+                                <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
+                            </div>
+                        </div><!-- /.team__items -->
+                    </div><!-- /.team__col -->
+                {% endfor %}
     
             </div><!-- /.team -->
         </div><!-- /.container -->
