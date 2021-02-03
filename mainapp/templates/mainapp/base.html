@@ -1,0 +1,170 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Useful meta tags -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, noodp">
+    <meta name="googlebot" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>
+        {% block title %}
+            {{ title|capfirst }}
+        {% endblock title %} 
+    </title>
+    
+    {% block css %}
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/style.min.css">
+    {% endblock css %}
+        
+</head>
+<body>
+
+<div class="page">
+
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="#" data-scroll="#intro">
+                    <img class="img  header__img" src="/static/img/logo.svg" alt="CenterLogistic">
+                </a>
+
+                
+                {% block menu %}    
+                {% endblock menu %}
+
+                <button class="burger" type="button" id="navToggle">
+                    <span class="burger__line">1</span>
+                    <span class="burger__line">2</span>
+                    <span class="burger__line">3</span>
+                    <span class="burger__line">4</span>
+                </button>
+    
+            </div><!--./header__inner-->
+        </div><!--./container-->
+    </header>
+
+    <div class="content">
+
+        {% block content %}
+        {% endblock content %}
+
+        <!-- Footer -->
+        {% block footer %}
+            <footer class="footer">
+                <div class="container">
+                    <img src="/static/img/logo-black.svg" alt="">
+                    <address class="footer__contacts">
+                        <p>New York, Street, ZIP code</p>
+                        <p>
+                        Call Us: <a href="tel:+9948373123">+9948373123</a> or E-mail:
+                        <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a>
+                        </p>
+                    </address>
+            
+                    <nav class="footer__nav">
+                        <a href="/text2/">Terms &amp; Contidions</a>
+                        <a href="/text/">Privacy Policy</a>
+                        <a href="/blog/">Our blog</a>
+                    </nav>
+                </div>
+            </footer>
+        {% endblock footer %}
+            
+    </div><!--./content-->
+
+</div>
+
+
+<!--Modal-->
+{% block modal %} 
+    <!--BecomeModal-->
+    <div class="modal" id="becomeClientModal">
+        <div class="modal__inner">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <h4 class="modal__title">Need to deliver your cargo?
+                    We can help!</h4>
+                    <div class="modal__text">
+                        <p>Fill a little form and we will call you back!</p>
+                    </div>
+                </div>
+
+                <form class="form" action="/" method="post">
+                    <div class="form__group">
+                        <input class="input input--dark input--user" type="text" placeholder="Your name">
+                        <input class="input input--dark input--tel" type="tel" placeholder="Your phone">
+                        <input class="input input--dark input--email" type="email" placeholder="Your email">
+                    </div>
+                    <button class="btn btn--block btn--orange" type="submit">    <span>Call me back</span>
+                    </button>
+                </form>
+
+                <div class="modal__footer">
+                    <h4 class="modal__footer-title">Our contacts</h4>
+                    <address class="modal__contacts">
+                        <p>New York, Street, ZIP code</p>
+                        <p>Phone: <a href="tel:+9948373123">+9948373123</a></p>
+                        <p>E-mail: <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
+                    </address>
+                </div>
+
+                <button class="modal__close" type="button" data-modal-close>
+                <img src="/static/img/close.svg" alt="Close">
+                </button>
+            </div><!-- /.modal__content -->
+
+        </div><!--/.modal__inner-->
+    </div><!--/.becomeModal-->
+
+
+    <!--ThanksModal-->
+    <div class="modal" style="display: none" id="thanksModal">
+        <div class="modal__inner">
+
+            <div class="modal__header">
+                <img class="modal__icon" src="/static/img/tick.svg" alt="">
+                <h4 class="modal__title">Thanks for your request</h4>
+                <div class="modal__text">
+                    <p>We call you back as soon as possible!</p>
+                </div>
+            </div>
+
+            <div class="modal__footer">
+                <h4 class="modal__footer-title">Our contacts</h4>
+                <address class="modal__contacts">
+                    <p>New York, Street, ZIP code</p>
+                    <p>Phone: <a href="tel:+9948373123">+9948373123</a></p>
+                    <p>E-mail: <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
+                </address>
+            </div>
+
+            <button class="modal__close" type="button">
+            <img src="/static/img/close.svg" alt="Close">
+            </button>
+
+
+        </div><!--/.modal__inner-->
+    </div><!--/.thanksModal-->
+{% endblock modal %}
+    
+
+    
+{% block js %}
+    <!-- Javascript -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+    <script src="/static/js/app.js"></script>
+{% endblock js %}
+
+</body>
+</html>

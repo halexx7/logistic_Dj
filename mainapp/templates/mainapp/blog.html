@@ -1,231 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.min.css">
-    
-    <!-- Useful meta tags -->
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="index, follow, noodp">
-    <meta name="googlebot" content="index, follow">
-    <meta name="google" content="notranslate">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    
-    <title>CenterLogistic</title>
-    
-
-</head>
-<body>
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
 
 
-<div class="page">
-    <!--Header-->
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header__inner">
-                <a href="#" data-scroll="#intro">
-                    <img class="img" src="/static/img/logo.svg" alt="CenterLogistic">
-                </a>
-                <nav class="nav" id='nav'>
-                    <a class="nav__link" href="/">Home</a>
-                    <a class="nav__link" href="/blog/">Blog</a>
-                    <a class="nav__link" href="/text2/">Terms &amp; Conditions</a>
-                    <a class="nav__link" href="/services/">Product</a>
-                    <a class="nav__link" href="/contact/">Contact Us</a>
-                </nav>
-    
-                <button class="burger" type="button" id="navToggle">
-                    <span class="burger__line">1</span>
-                    <span class="burger__line">2</span>
-                    <span class="burger__line">3</span>
-                    <span class="burger__line">4</span>
-                </button>
-    
-            </div><!--./header__inner-->
-        </div><!--./container-->
-    </header>
+{% block menu %}
+    {% include 'mainapp/includes/inc_secondmenu.html' %}
+{% endblock menu %}
 
-    <!--Content-->
-    <div class="content">
-        
-        
-        <!-- Intro -->
-        <div class="intro intro--blog" id="intro">
-        
-        </div>
-        
-        
-        <!-- Main -->
-        <section class="section section--last">
-            <div class="container">
-                <main class="main">
-                    <div class="main__col">
-                        <h1 class="section__title "><span class="section__title-blue">Interesting</span> to read</h1>
-        
-                        <div class="articles  articles--column">
-                            <article class="articles__item">
-                                <h4 class="articles__title">
-                                    <a href="#">News title</a>
-                                </h4>
-                                <div class="articles__text">
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing</p>
-                                </div>
-                                <time class="articles_date" pubdate="21-03-2019 19:00">21 March, 2019</time>
-                            </article><!-- /.news__item -->
-        
-                            <article class="articles__item">
-                                <h4 class="articles__title">
-                                    <a href="#">News title</a>
-                                </h4>
-                                <div class="articles__text">
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                                </div>
-                                <time class="articles_date" pubdate="21-03-2019 19:00">21 March, 2019</time>
-                            </article><!-- /.articles__item -->
-        
-                        </div><!-- /.articles -->
-        
-                        <a class="btn btn--orange" href="/">
-                            <span>Back to home</span>
-                        </a>
-                    </div><!-- /.main__col -->
-        
-                    <div class="main__col">
-                        <div class="request-form  request-form--right">
-        
-                            <div class="request-form__header">
-        
-                                <h3 class="request-form__title">Get Callback</h3>
-                                <div class="request-form__text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                                </div>
-        
-                                <div class="request-form__content">
-                                    <form class="form" action="/" method="post">
-                                        <div class="form__group">
-                                            <input class="input input--user" type="text" placeholder="Your name">
-                                            <input class="input input--tel" type="tel" placeholder="Your phone">
-                                            <input class="input input--email" type="email" placeholder="Your email">
-                                        </div>
-                                        <button class="btn btn--block btn--orange" type="submit">    <span>Call me back</span>
-                                        </button>
-                                    </form>
-                                </div><!-- ./request-form__content -->
-        
-                            </div><!-- /.request-form__header -->
-        
-                        </div><!-- /.request-form -->
-                    </div><!-- /.main__col -->
-                </main>
-        
-        
-        
-            </div><!-- /.container -->
-        </section>
-        
+    
+{% block content %}
+    <!-- Intro -->
+    <div class="intro intro--blog" id="intro">
+    
     </div>
-
-    <!--Footer-->
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <img src="/static/img/logo-black.svg" alt="">
-            <address class="footer__contacts">
-                <p>New York, Street, ZIP code</p>
-                <p>
-                Call Us: <a href="tel:+9948373123">+9948373123</a> or E-mail:
-                <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a>
-                </p>
-            </address>
     
-            <nav class="footer__nav">
-                <a href="/text2/">Terms &amp; Contidions</a>
-                <a href="/text/">Privacy Policy</a>
-                <a href="/blog/">Our blog</a>
-            </nav>
-        </div>
-    </footer>
-</div>
+    
+    <!-- Main -->
+    <section class="section section--last">
+        <div class="container">
+            <main class="main">
+                <div class="main__col">
+                    <h1 class="section__title "><span class="section__title-blue">Interesting</span> to read</h1>
+    
+                    <div class="articles  articles--column">
+                        <article class="articles__item">
+                            <h4 class="articles__title">
+                                <a href="#">News title</a>
+                            </h4>
+                            <div class="articles__text">
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing</p>
+                            </div>
+                            <time class="articles_date" pubdate="21-03-2019 19:00">21 March, 2019</time>
+                        </article><!-- /.news__item -->
+    
+                        <article class="articles__item">
+                            <h4 class="articles__title">
+                                <a href="#">News title</a>
+                            </h4>
+                            <div class="articles__text">
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+                            </div>
+                            <time class="articles_date" pubdate="21-03-2019 19:00">21 March, 2019</time>
+                        </article><!-- /.articles__item -->
+    
+                    </div><!-- /.articles -->
+    
+                    <a class="btn btn--orange" href="/">
+                        <span>Back to home</span>
+                    </a>
+                </div><!-- /.main__col -->
+    
+                <div class="main__col">
+                    <div class="request-form  request-form--right">
+    
+                        <div class="request-form__header">
+    
+                            <h3 class="request-form__title">Get Callback</h3>
+                            <div class="request-form__text">
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                            </div>
+    
+                            <div class="request-form__content">
+                                <form class="form" action="/" method="post">
+                                    <div class="form__group">
+                                        <input class="input input--user" type="text" placeholder="Your name">
+                                        <input class="input input--tel" type="tel" placeholder="Your phone">
+                                        <input class="input input--email" type="email" placeholder="Your email">
+                                    </div>
+                                    <button class="btn btn--block btn--orange" type="submit">    <span>Call me back</span>
+                                    </button>
+                                </form>
+                            </div><!-- ./request-form__content -->
+    
+                        </div><!-- /.request-form__header -->
+    
+                    </div><!-- /.request-form -->
+                </div><!-- /.main__col -->
+            </main>
+    
+    
+    
+        </div><!-- /.container -->
+    </section>
+{% endblock content %}
 
-<!--Modal-->
-
-<!--BecomeModal-->
-<div class="modal" id="becomeClientModal">
-    <div class="modal__inner">
-        <div class="modal__content">
-            <div class="modal__header">
-                <h4 class="modal__title">Need to deliver your cargo?
-                We can help!</h4>
-                <div class="modal__text">
-                    <p>Fill a little form and we will call you back!</p>
-                </div>
-            </div>
-
-            <form class="form" action="/" method="post">
-                <div class="form__group">
-                    <input class="input input--dark input--user" type="text" placeholder="Your name">
-                    <input class="input input--dark input--tel" type="tel" placeholder="Your phone">
-                    <input class="input input--dark input--email" type="email" placeholder="Your email">
-                </div>
-                <button class="btn btn--block btn--orange" type="submit">    <span>Call me back</span>
-                </button>
-            </form>
-
-            <div class="modal__footer">
-                <h4 class="modal__footer-title">Our contacts</h4>
-                <address class="modal__contacts">
-                    <p>New York, Street, ZIP code</p>
-                    <p>Phone: <a href="tel:+9948373123">+9948373123</a></p>
-                    <p>E-mail: <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
-                </address>
-            </div>
-
-            <button class="modal__close" type="button" data-modal-close>
-               <img src="/static/img/close.svg" alt="Close">
-            </button>
-        </div><!-- /.modal__content -->
-
-    </div><!--/.modal__inner-->
-</div><!--/.becomeModal-->
-
-
-<!--ThanksModal-->
-<div class="modal" style="display: none" id="thanksModal">
-    <div class="modal__inner">
-
-        <div class="modal__header">
-            <img class="modal__icon" src="/static/img/tick.svg" alt="">
-            <h4 class="modal__title">Thanks for your request</h4>
-            <div class="modal__text">
-                <p>We call you back as soon as possible!</p>
-            </div>
-        </div>
-
-        <div class="modal__footer">
-            <h4 class="modal__footer-title">Our contacts</h4>
-            <address class="modal__contacts">
-                <p>New York, Street, ZIP code</p>
-                <p>Phone: <a href="tel:+9948373123">+9948373123</a></p>
-                <p>E-mail: <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
-            </address>
-        </div>
-
-        <button class="modal__close" type="button">
-           <img src="/static/img/close.svg" alt="Close">
-        </button>
-
-
-    </div><!--/.modal__inner-->
-</div><!--/.thanksModal-->
-
-<!-- Javascript -->
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.slim.min.js"></script>
-<script src="/static/js/app.js"></script>
-
-</body>
-</html>
