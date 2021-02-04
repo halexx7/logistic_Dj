@@ -4918,6 +4918,66 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
     }
 }
 
+.section--services {
+    padding: 0;
+}
+
+.categories__menu {
+    padding-bottom: 50px;
+}
+
+.links__menu {
+    max-width: 800px;
+    min-height: 60px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #f1f1f1;
+}
+
+.links__menu li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 160px;
+}
+
+.links__menu li.active::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+}
+
+.links__menu li.active a {
+    color: #000;
+}
+
+.links__menu li a {
+    font-size: 24px;
+    font-weight: 900;
+    color: #6c6c6c;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
 .intro__services {
     margin-top: 30px;
     margin-bottom: 100px;
