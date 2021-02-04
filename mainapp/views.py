@@ -1,15 +1,21 @@
 import datetime
 from django.shortcuts import render
+import json
+
+
+def load_data(dir):
+    ''' Загружаем данные из файла JSON'''
+    with open( dir, 'r', encoding='utf-8') as result:
+        data = json.load(result)
+    return data
 
 
 def main(request):
     title = "home"
-    services = [
-        {"name": "Ground shipping", "link": "/services/", "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"},
-        {"name": "Railway shipping", "link": "/services/", "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut"},
-        {"name": "Water shipping", "link": "/services/", "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"},
-        {"name": "Air shipping", "link": "/services/", "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut "},  
-    ]
+
+    services = load_data('mainapp/data/services.json')
+    news = load_data('mainapp/data/news.json')
+
     reviews = [
         {"name": 'MIchel Fox', "company": "FOX Hub CEO", "photo": "https://placehold.it/100", "alt": "Photo client", "content_1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam veritatis ab consectetur aliquam corporis sequi dolore maxime eaque magnam! Laborum eligendi necessitatibus porro officia, dicta deserunt commodi! Vel, nisi, aspernatur!",  "content_2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam veritatis ab consectetur aliquam corporis sequi dolore maxime eaque magnam! Laborum eligendi necessitatibus porro officia, dicta deserunt commodi! Vel, nisi, aspernatur!"},
         {"name": 'John Smith', "company": "GIT Hub", "photo": "https://placehold.it/100", "alt": "Photo client", "content_1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam veritatis ab consectetur aliquam corporis sequi dolore maxime eaque magnam! Laborum eligendi necessitatibus porro officia, dicta deserunt commodi! Vel, nisi, aspernatur!",  "content_2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam veritatis ab consectetur aliquam corporis sequi dolore maxime eaque magnam! Laborum eligendi necessitatibus porro officia, dicta deserunt commodi! Vel, nisi, aspernatur!"},
@@ -25,10 +31,6 @@ def main(request):
         {"name": "Daniel Kore", "profession": "Software engineer", "photo": "/static/img/team/team2.jpg", "alt": "Daniel Kore", "email": "daniel@centerlogistic.com", "phone": "+987423252253"},
         {"name": "Anna Filler", "profession": "Marketing specialist - 10 years experience", "photo": "static/img/team/team3.jpg", "alt": "Anna Filler", "email": "anna@centerlogistic.com", "phone": "+98735353456"},
     ]
-    news = [
-        {"title": "News title", "public_date": "21 March, 2019", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing"},
-        {"title": "News title", "public_date": "21 March, 2019", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing"},
-    ]
     content = {
         "title": title, 
         "services": services, 
@@ -42,10 +44,9 @@ def main(request):
 
 def blog(request):
     title = "blog"
-    news = [
-        {"title": "News title", "public_date": "21 March, 2019", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing"},
-        {"title": "News title", "public_date": "21 March, 2019", "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing"},
-    ]
+
+    news = load_data('mainapp/data/news.json')
+
     content = {
         "title": title, 
         "news": news,
@@ -99,26 +100,7 @@ def services(request):
 
 def contact(request):
     title = "contacts"
-    contacts = [
-        {
-            "city": "Moscow",
-            "phone": "+7 (999) 999-99-99",
-            "email": "shop@logistic.com",
-            "address": "st. Tverskaya 100",
-        },
-        {
-            "city": "Ekaterinburg",
-            "phone": "+7 (999) 999-99-99",
-            "email": "shop-ekb@logistic.com",
-            "address": "st. Pushkinskaya 50",
-        },
-        {
-            "city": "Izhevsk",
-            "phone": "+7 (999) 999-99-99",
-            "email": "shop-izh@logistic.com",
-            "address": "st. Udmurtskaya 200",
-        },
-    ]
+    contacts = load_data('mainapp/data/contact.json')
     content = {
         "title": title, 
         "contacts": contacts,
