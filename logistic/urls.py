@@ -10,5 +10,8 @@ urlpatterns =[
     path("text/", mainapp.text, name='text'),
     path("text2/", mainapp.text2, name='text2'),
     path("services/", mainapp.services, name='services'),
+    path("services/railway", mainapp.services, name='services_railway'),
+    path("services/water", mainapp.services, name='services_water'),
+    path("services/air", mainapp.services, name='services_air'),
     path("contact/", mainapp.contact, name='contact'),
 ]

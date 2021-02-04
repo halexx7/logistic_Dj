@@ -68,6 +68,12 @@ def text2(request):
 
 def services(request):
     title = "Terms & Conditions"
+    links_menu = [
+        {"href": "services", "name": "Ground"},
+        {"href": "services_railway", "name": "Railway"},
+        {"href": "services_water", "name": "Water"},
+        {"href": "services_air", "name": "Air"}
+    ]
     services = [
         {
             "name": "Gazel NEXT",
@@ -92,7 +98,8 @@ def services(request):
     ]
 
     content = {
-        "title": title, 
+        "title": title,
+        "links_menu": links_menu, 
         "services": services,
         }
     return render(request, "mainapp/services.html", content)
@@ -100,9 +107,11 @@ def services(request):
 
 def contact(request):
     title = "contacts"
+    visit_date = datetime.datetime.now()
     contacts = load_data('mainapp/data/contact.json')
     content = {
-        "title": title, 
+        "title": title,
+        "visit_date": visit_date,
         "contacts": contacts,
         }
     return render(request, "mainapp/contact.html", content)
