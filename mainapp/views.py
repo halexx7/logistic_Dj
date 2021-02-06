@@ -50,7 +50,7 @@ def text2(request):
     return render(request, "mainapp/text-2.html", content)
 
 
-def services(request):
+def services(request, pk=None):
     title = "services"
     services = Services.objects.all()
     links_menu = ServicesCategory.objects.all()
@@ -61,6 +61,8 @@ def services(request):
         "links_menu": links_menu,
         "media_url": settings.MEDIA_URL,
         }
+    if pk:
+        print(f"User select category: {pk}")
     return render(request, "mainapp/services.html", content)
 
 

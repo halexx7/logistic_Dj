@@ -3,6 +3,6 @@
     <a class="nav__link  {% if request.resolver_match.url_name == 'blog' %}active{% endif %}" href="{% url 'blog' %}">Blog</a>
     <a class="nav__link  {% if request.resolver_match.url_name == 'text2' %}active{% endif %}" href="{% url 'text2' %}">Terms &amp; Conditions</a>
     <a class="nav__link  {% if request.resolver_match.url_name == 'text' %}active{% endif %}" href="{% url 'text' %}">Privacy</a>
-    <a class="nav__link  {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services' %}">Product</a>
     <a class="nav__link  {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact Us</a>
+    <a class="nav__link  {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'services:index' %}">Products</a>
 </nav>
