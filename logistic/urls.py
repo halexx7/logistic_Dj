@@ -5,10 +5,13 @@ import mainapp.views as mainapp
 
 urlpatterns =[
     path("admin/", admin.site.urls),
-    path("", mainapp.main),
-    path("blog/", mainapp.blog),
-    path("text/", mainapp.text),
-    path("text2/", mainapp.text2),
-    path("services/", mainapp.services),
-    path("contact/", mainapp.contact),
+    path("", mainapp.main, name='main'),
+    path("blog/", mainapp.blog, name='blog'),
+    path("text/", mainapp.text, name='text'),
+    path("text2/", mainapp.text2, name='text2'),
+    path("services/", mainapp.services, name='services'),
+    path("services/railway", mainapp.services, name='services_railway'),
+    path("services/water", mainapp.services, name='services_water'),
+    path("services/air", mainapp.services, name='services_air'),
+    path("contact/", mainapp.contact, name='contact'),
 ]

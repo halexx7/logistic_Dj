@@ -1,0 +1,20 @@
+[
+    {
+        "city": "Moscow",
+        "phone": "+7 (999) 999-99-99",
+        "email": "shop@logistic.com",
+        "address": "st. Tverskaya 100"
+    },
+    {
+        "city": "Ekaterinburg",
+        "phone": "+7 (999) 999-99-99",
+        "email": "shop-ekb@logistic.com",
+        "address": "st. Pushkinskaya 50"
+    },
+    {
+        "city": "Izhevsk",
+        "phone": "+7 (999) 999-99-99",
+        "email": "shop-izh@logistic.com",
+        "address": "st. Udmurtskaya 200"
+    }
+]

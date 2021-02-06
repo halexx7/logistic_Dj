@@ -1,219 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.min.css">
-    
-    <!-- Useful meta tags -->
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="index, follow, noodp">
-    <meta name="googlebot" content="index, follow">
-    <meta name="google" content="notranslate">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    
-    <title>CenterLogistic</title>
-    
-
-</head>
-<body>
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
 
 
-<div class="page">
-    <!--Header-->
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header__inner">
-                <a href="#" data-scroll="#intro">
-                    <img class="img" src="/static/img/logo.svg" alt="CenterLogistic">
-                </a>
-                <nav class="nav" id='nav'>
-                    <a class="nav__link" href="/">Home</a>
-                    <a class="nav__link" href="/blog/">Blog</a>
-                    <a class="nav__link" href="/text2/">Terms &amp; Conditions</a>
-                    <a class="nav__link" href="/services/">Product</a>
-                    <a class="nav__link" href="/contact/">Contact Us</a>
-                </nav>
-    
-                <button class="burger" type="button" id="navToggle">
-                    <span class="burger__line">1</span>
-                    <span class="burger__line">2</span>
-                    <span class="burger__line">3</span>
-                    <span class="burger__line">4</span>
-                </button>
-    
-            </div><!--./header__inner-->
-        </div><!--./container-->
-    </header>
+{% block menu %}
+    {% include 'mainapp/includes/inc_secondmenu.html' %}
+{% endblock menu %}
 
-    <!--Content-->
-    <div class="content">
-        
-        
-        <!-- Services Intro -->
-        <div class="intro intro--services" id="intro">
-        
-        </div>
-        
-        
-        <!-- Content -->
-        <section class="section section--gray" id="team" data-scrollspy="#team">
-            <div class="container">
-                <h2 class="section__title"><span class="section__title-blue">Our</span> car fleet</h2>
-        
-                <div class="team  intro__services">
-                    <div class="team__col">
-                        <div class="team__items  services__items" data-aos="fade-in">
-                            <img class="team__photo  img  services__photo" src="/static/img/services/gazel.jpg" alt="">
-                            <div class="team__name">Gazel NEXT</div>
-                            <div class="team__prof">The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods</div>
-                            <div class="intro__services-lifting">
-                                <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
-                                <p class="intro__services-text">5 tons</p>
-                            </div>
-                            <div class="wrap__btn">
-                                <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
-                            </div>
-                        </div><!-- /.team__items -->
-                    </div><!-- /.team__col -->
-        
-                    <div class="team__col">
-                        <div class="team__items  services__items"  data-aos="fade-in" data-aos-delay="100">
-                            <img class="team__photo img  services__photo" src="/static/img/services/volvo_5.jpg" alt="">
-                            <div class="team__name">Volvo FE350</div>
-                            <div class="team__prof">The new generation of Volvo FL distribution trucks for intercity and short regional transport road tests using special methods</div>
-                            <div class="intro__services-lifting">
-                                <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
-                                <p class="intro__services-text">10 tons</p>
-                            </div>
-                            <div class="wrap__btn">
-                                <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
-                            </div>
-                        </div><!-- /.team__items -->
-                    </div><!-- /.team__col -->
-        
-                    <div class="team__col">
-                        <div class="team__items  services__items"  data-aos="fade-in" data-aos-delay="200">
-                            <img class="team__photo img  services__photo" src="/static/img/services/volvo_10.jpg" alt="">
-                            <div class="team__name">Volvo FH550</div>
-                            <div class="team__prof">
-                                New generation features offered in the FH versions and the flagship FH16: a completely new, more spacious and comfortable</div>
-                            <div class="intro__services-lifting">
-                                <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
-                                <p class="intro__services-text">40 tons</p>
-                            </div>
-                            <div class="wrap__btn">
-                                <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
-                            </div>
-                        </div><!-- /.team__items -->
-                    </div><!-- /.team__col -->
-        
-                </div><!-- /.team -->
-            </div><!-- /.container -->
-        </section>
-        
+    
+{% block content %}
+    <!-- Services Intro -->
+    <div class="intro intro--services" id="intro">
+    
     </div>
 
-    <!--Footer-->
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <img src="/static/img/logo-black.svg" alt="">
-            <address class="footer__contacts">
-                <p>New York, Street, ZIP code</p>
-                <p>
-                Call Us: <a href="tel:+9948373123">+9948373123</a> or E-mail:
-                <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a>
-                </p>
-            </address>
     
-            <nav class="footer__nav">
-                <a href="/text2/">Terms &amp; Contidions</a>
-                <a href="/text/">Privacy Policy</a>
-                <a href="/blog/">Our blog</a>
-            </nav>
-        </div>
-    </footer>
-</div>
+    <!-- Content -->
+    <section class="section section--gray" id="team" data-scrollspy="#team">
+        <div class="container">
+            {% include 'mainapp/includes/inc_categories_menu.html' %}
 
-<!--Modal-->
+            <h2 class="section__title"><span class="section__title-blue">Our</span> car fleet</h2>
+    
+            <div class="team  intro__services">
 
-<!--BecomeModal-->
-<div class="modal" id="becomeClientModal">
-    <div class="modal__inner">
-        <div class="modal__content">
-            <div class="modal__header">
-                <h4 class="modal__title">Need to deliver your cargo?
-                We can help!</h4>
-                <div class="modal__text">
-                    <p>Fill a little form and we will call you back!</p>
-                </div>
-            </div>
+                {% for service in services %}
+                    <div class="team__col">
+                        <div class="team__items  services__items" data-aos="fade-in">
+                            <img class="team__photo  img  services__photo" src="{{ service.services_img }}" alt="{{ service.alt }}">
+                            <div class="team__name">{{ service.name }}</div>
+                            <div class="team__prof">{{ service.desc }}</div>
+                            <div class="intro__services-lifting">
+                                <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
+                                <p class="intro__services-text">{{ service.lifting }}</p>
+                            </div>
+                            <div class="wrap__btn">
+                                <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
+                            </div>
+                        </div><!-- /.team__items -->
+                    </div><!-- /.team__col -->
+                {% endfor %}
+    
+            </div><!-- /.team -->
+        </div><!-- /.container -->
+    </section>
+{% endblock content %}
 
-            <form class="form" action="/" method="post">
-                <div class="form__group">
-                    <input class="input input--dark input--user" type="text" placeholder="Your name">
-                    <input class="input input--dark input--tel" type="tel" placeholder="Your phone">
-                    <input class="input input--dark input--email" type="email" placeholder="Your email">
-                </div>
-                <button class="btn btn--block btn--orange" type="submit">    <span>Call me back</span>
-                </button>
-            </form>
-
-            <div class="modal__footer">
-                <h4 class="modal__footer-title">Our contacts</h4>
-                <address class="modal__contacts">
-                    <p>New York, Street, ZIP code</p>
-                    <p>Phone: <a href="tel:+9948373123">+9948373123</a></p>
-                    <p>E-mail: <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
-                </address>
-            </div>
-
-            <button class="modal__close" type="button" data-modal-close>
-               <img src="/static/img/close.svg" alt="Close">
-            </button>
-        </div><!-- /.modal__content -->
-
-    </div><!--/.modal__inner-->
-</div><!--/.becomeModal-->
-
-
-<!--ThanksModal-->
-<div class="modal" style="display: none" id="thanksModal">
-    <div class="modal__inner">
-
-        <div class="modal__header">
-            <img class="modal__icon" src="/static/img/tick.svg" alt="">
-            <h4 class="modal__title">Thanks for your request</h4>
-            <div class="modal__text">
-                <p>We call you back as soon as possible!</p>
-            </div>
-        </div>
-
-        <div class="modal__footer">
-            <h4 class="modal__footer-title">Our contacts</h4>
-            <address class="modal__contacts">
-                <p>New York, Street, ZIP code</p>
-                <p>Phone: <a href="tel:+9948373123">+9948373123</a></p>
-                <p>E-mail: <a href="mailto:hello@centerlogistic.com">hello@centerlogistic.com</a></p>
-            </address>
-        </div>
-
-        <button class="modal__close" type="button">
-           <img src="/static/img/close.svg" alt="Close">
-        </button>
-
-
-    </div><!--/.modal__inner-->
-</div><!--/.thanksModal-->
-
-<!-- Javascript -->
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.slim.min.js"></script>
-<script src="/static/js/app.js"></script>
-
-</body>
-</html>
