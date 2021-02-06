@@ -71,14 +71,14 @@
             <div class="services">
                 <h2 class="services__main-title">Services</h2>
 
-                {% for service in services %}
+                {% for caterory in caterories %}
                 <div class="services__item" data-aos="fade-in" data-aos-delay="">
-                    <h4 class="services__title">{{ service.name }}</h4>
+                    <h4 class="services__title">{{ caterory.name_long }}</h4>
                     <div class="services__text">
-                        <p>{{ service.desc }}</p>
+                        <p>{{ caterory.desc_category }}</p>
                     </div>
                     <div class="services__footer">
-                    <a class="services__link" href="{{ service.link }}">Lern more</a>
+                    <a class="services__link" href="/services/">Lern more</a>
                     </div>
                 </div>
                 {% endfor %}
@@ -193,7 +193,7 @@
                     <ul class="benefits-list">
                         {% for benefits in benefits_list %}
                             <li class="benefits-list__item" data-aos="fade-down">
-                                <h4 class="benefits-list__title">{{ benefits.name }}</h4>
+                                <h4 class="benefits-list__title">{{ benefits.title }}</h4>
                                 <div class="benefits-list__text">
                                     <p>{{ benefits.desc }}</p>
                                 </div>
@@ -220,8 +220,8 @@
                 {% for person in team %}
                     <div class="team__col">
                         <div class="team__items" data-aos="fade-in">
-                            <img class="team__photo img" src="{{ person.photo }}" alt="{{ person.alt }}">
-                            <div class="team__name">{{ person.name }}</div>
+                            <img class="team__photo img" src="{{ media_url }}{{ person.photo }}" alt="{{ person.full_name }}">
+                            <div class="team__name">{{ person.full_name }}</div>
                             <div class="team__prof">{{ person.profession }}</div>
                             <ul class="taem__contacts">
                                 <li>
