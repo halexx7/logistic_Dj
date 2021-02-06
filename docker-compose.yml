@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=logistic
       - POSTGRES_PASSWORD=logistic
     volumes:
-        - ../postgres:/var/lib/postgresql/data
+        - "../postgres:/var/lib/postgresql/data"
     ports:
       - "5000:5432"
   
