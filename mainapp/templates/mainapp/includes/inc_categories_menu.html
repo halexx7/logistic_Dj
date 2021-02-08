@@ -3,7 +3,7 @@
     <ul class="links__menu">
         
         {% for link in links_menu %}
-            <li><a href="#">{{ link.name }}</a></li>
+            <li><a href="{% url 'services:category' link.pk %}">{{ link.name }}</a></li>
         {% endfor %}
         
      </ul>
