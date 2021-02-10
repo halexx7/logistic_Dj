@@ -5,4 +5,10 @@
     <a class="nav__link  {% if request.resolver_match.url_name == 'text' %}active{% endif %}" href="{% url 'text' %}">Privacy</a>
     <a class="nav__link  {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'services:index' %}">Product</a>
     <a class="nav__link  {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact Us</a>
+
+    {% if user.is_authenticated %}
+        <a class="nav__link" href="{% url 'auth:logout' %}">Logout</a>
+    {% else %}
+        <a class="nav__link" href="{% url 'auth:login' %}">Login</a>
+    {% endif %}
 </nav>
