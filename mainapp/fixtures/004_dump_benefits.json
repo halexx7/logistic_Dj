@@ -1,0 +1,34 @@
+[
+    {
+        "model": "mainapp.benefits",
+        "pk": 1,
+        "fields": {
+            "title": "Safety",
+            "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+        }
+    },
+    {
+        "model": "mainapp.benefits",
+        "pk": 2,
+        "fields": {
+            "title": "High quality drivers",
+            "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+        }
+    },
+    {
+        "model": "mainapp.benefits",
+        "pk": 3,
+        "fields": {
+            "title": "Guarantee & Support 24/7",
+            "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+        }
+    },
+    {
+        "model": "mainapp.benefits",
+        "pk": 4,
+        "fields": {
+            "title": "Personal manager",
+            "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+        }
+    }
+]

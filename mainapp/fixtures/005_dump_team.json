@@ -1,0 +1,35 @@
+[
+    {
+        "model": "mainapp.team",
+        "pk": 1,
+        "fields": {
+            "full_name": "John Smith",
+            "profession": "Logistic manager - 8 years experience",
+            "photo": "team_photo/team1.jpg",
+            "email": "john@centerlogistic.com",
+            "phone": "+987412512543"
+        }
+    },
+    {
+        "model": "mainapp.team",
+        "pk": 2,
+        "fields": {
+            "full_name": "Daniel Kore",
+            "profession": "Software engineer",
+            "photo": "team_photo/team2.jpg",
+            "email": "daniel@centerlogistic.com",
+            "phone": "+987423252253"
+        }
+    },
+    {
+        "model": "mainapp.team",
+        "pk": 3,
+        "fields": {
+            "full_name": "John Smith",
+            "profession": "Marketing specialist - 10 years experience",
+            "photo": "team_photo/team3.jpg",
+            "email": "anna@centerlogistic.com",
+            "phone": "+98735353456"
+        }
+    }
+]
