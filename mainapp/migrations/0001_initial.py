@@ -9,68 +9,70 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Benefits',
+            name="Benefits",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=128, verbose_name='name')),
-                ('desc', models.TextField(blank=True, verbose_name='description')),
+                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("title", models.CharField(max_length=128, verbose_name="name")),
+                ("desc", models.TextField(blank=True, verbose_name="description")),
             ],
         ),
         migrations.CreateModel(
-            name='Contacts',
+            name="Contacts",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('city', models.CharField(max_length=256, verbose_name='city')),
-                ('phone', models.CharField(max_length=20, verbose_name='phone')),
-                ('email', models.CharField(max_length=128, verbose_name='e-mail')),
-                ('address', models.CharField(max_length=512, verbose_name='address')),
+                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("city", models.CharField(max_length=256, verbose_name="city")),
+                ("phone", models.CharField(max_length=20, verbose_name="phone")),
+                ("email", models.CharField(max_length=128, verbose_name="e-mail")),
+                ("address", models.CharField(max_length=512, verbose_name="address")),
             ],
         ),
         migrations.CreateModel(
-            name='News',
+            name="News",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=256, verbose_name='title_news')),
-                ('text', models.TextField(verbose_name='text_news')),
-                ('public_date', models.DateTimeField(default=django.utils.timezone.now, verbose_name=False)),
+                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("title", models.CharField(max_length=256, verbose_name="title_news")),
+                ("text", models.TextField(verbose_name="text_news")),
+                ("public_date", models.DateTimeField(default=django.utils.timezone.now, verbose_name=False)),
             ],
         ),
         migrations.CreateModel(
-            name='ServicesCategory',
+            name="ServicesCategory",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=32, unique=True, verbose_name='name_category')),
-                ('name_long', models.CharField(max_length=64, verbose_name='name_long')),
-                ('desc_category', models.TextField(verbose_name='description')),
+                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("name", models.CharField(max_length=32, unique=True, verbose_name="name_category")),
+                ("name_long", models.CharField(max_length=64, verbose_name="name_long")),
+                ("desc_category", models.TextField(verbose_name="description")),
             ],
         ),
         migrations.CreateModel(
-            name='Team',
+            name="Team",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('full_name', models.CharField(max_length=256, verbose_name='full_name')),
-                ('profession', models.CharField(max_length=256, verbose_name='profession')),
-                ('photo', models.ImageField(blank=True, upload_to='team_photo')),
-                ('email', models.CharField(max_length=128, verbose_name='e-mail')),
-                ('phone', models.CharField(max_length=20, verbose_name='phone')),
+                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("full_name", models.CharField(max_length=256, verbose_name="full_name")),
+                ("profession", models.CharField(max_length=256, verbose_name="profession")),
+                ("photo", models.ImageField(blank=True, upload_to="team_photo")),
+                ("email", models.CharField(max_length=128, verbose_name="e-mail")),
+                ("phone", models.CharField(max_length=20, verbose_name="phone")),
             ],
         ),
         migrations.CreateModel(
-            name='Services',
+            name="Services",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=128, verbose_name='services')),
-                ('image', models.ImageField(blank=True, upload_to='services_images')),
-                ('description', models.TextField(blank=True, verbose_name='description')),
-                ('lifting', models.CharField(max_length=32, verbose_name='lifting')),
-                ('price', models.DecimalField(decimal_places=2, default=0, max_digits=8, verbose_name='price')),
-                ('quantity', models.PositiveIntegerField(default=0, verbose_name='quantity')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mainapp.ServicesCategory')),
+                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("name", models.CharField(max_length=128, verbose_name="services")),
+                ("image", models.ImageField(blank=True, upload_to="services_images")),
+                ("description", models.TextField(blank=True, verbose_name="description")),
+                ("lifting", models.CharField(max_length=32, verbose_name="lifting")),
+                ("price", models.DecimalField(decimal_places=2, default=0, max_digits=8, verbose_name="price")),
+                ("quantity", models.PositiveIntegerField(default=0, verbose_name="quantity")),
+                (
+                    "category",
+                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="mainapp.ServicesCategory"),
+                ),
             ],
         ),
     ]

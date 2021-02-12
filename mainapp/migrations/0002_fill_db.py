@@ -10,12 +10,12 @@ def forwards_func(apps, schema_editor):
     home_team_model = apps.get_model("mainapp", "Team")
 
     # Create new category
-    serv_cat_obj=serv_cat_model.objects.create(
-        pk=1, 
-        name="Ground", 
-        name_long="Ground shipping", 
-        desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-        )
+    serv_cat_obj = serv_cat_model.objects.create(
+        pk=1,
+        name="Ground",
+        name_long="Ground shipping",
+        desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+    )
     # Create new products in this category
     serv_model.objects.create(
         pk=1,
@@ -25,7 +25,7 @@ def forwards_func(apps, schema_editor):
         description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
         lifting="5 tons",
         price="100.00",
-        quantity=100
+        quantity=100,
     )
     serv_model.objects.create(
         pk=2,
@@ -35,7 +35,7 @@ def forwards_func(apps, schema_editor):
         description="The new generation of Volvo FL distribution trucks for intercity and short regional transport road tests using special methods",
         lifting="10 tons",
         price="1000.00",
-        quantity=20
+        quantity=20,
     )
     serv_model.objects.create(
         pk=3,
@@ -45,21 +45,35 @@ def forwards_func(apps, schema_editor):
         description="New generation features offered in the FH versions and the flagship FH16: a completely new, more spacious and comfortable",
         lifting="40 tons",
         price="10000.00",
-        quantity=10
+        quantity=10,
     )
     del serv_cat_obj  # Delete link for category
 
     # Create new category
-    serv_cat_obj = serv_cat_model.objects.create(pk=2, name="Railway", name_long="Railway shipping", desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam")
+    serv_cat_obj = serv_cat_model.objects.create(
+        pk=2,
+        name="Railway",
+        name_long="Railway shipping",
+        desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+    )
     del serv_cat_obj  # Delete link for category
 
     # Create new category
-    serv_cat_obj = serv_cat_model.objects.create(pk=3, name="Water", name_long="Water shipping", desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam")
+    serv_cat_obj = serv_cat_model.objects.create(
+        pk=3,
+        name="Water",
+        name_long="Water shipping",
+        desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+    )
     del serv_cat_obj  # Delete link for category
 
     # Create new category
-    serv_cat_obj = serv_cat_model.objects.create(pk=4, name="Air", name_long="Air shipping", desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam")
-
+    serv_cat_obj = serv_cat_model.objects.create(
+        pk=4,
+        name="Air",
+        name_long="Air shipping",
+        desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+    )
 
     # Create news
     home_news_model.objects.create(
@@ -75,53 +89,40 @@ def forwards_func(apps, schema_editor):
         public_date="2021-02-08T01:28:07Z",
     )
 
-
     # Create contacts
     con_model.objects.create(
-        pk=1,
-        city="Moscow",
-        phone="+7 (999) 999-99-99",
-        email="lshop@logistic.com",
-        address="st. Tverskaya 100"
+        pk=1, city="Moscow", phone="+7 (999) 999-99-99", email="lshop@logistic.com", address="st. Tverskaya 100"
     )
     con_model.objects.create(
         pk=2,
         city="Ekaterinburg",
         phone="+7 (999) 999-99-99",
         email="shop-ekb@logistic.com",
-        address="st. Pushkinskaya 50"
+        address="st. Pushkinskaya 50",
     )
     con_model.objects.create(
-        pk=3,
-        city="Izhevsk",
-        phone="+7 (999) 999-99-99",
-        email="lshop-izh@logistic.com",
-        address="st. Udmurtskaya 200"
+        pk=3, city="Izhevsk", phone="+7 (999) 999-99-99", email="lshop-izh@logistic.com", address="st. Udmurtskaya 200"
     )
-
 
     # Create benefits
     home_benefits_model.objects.create(
-        pk=1,
-        title="Safety",
-        desc="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+        pk=1, title="Safety", desc="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
     )
     home_benefits_model.objects.create(
         pk=2,
         title="High quality drivers",
-        desc="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+        desc="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod",
     )
     home_benefits_model.objects.create(
         pk=3,
         title="Guarantee & Support 24/7",
-        desc="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+        desc="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod",
     )
     home_benefits_model.objects.create(
         pk=4,
         title="Personal manager",
-        desc="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod"
+        desc="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod",
     )
-
 
     # Create team
     home_team_model.objects.create(
@@ -130,7 +131,7 @@ def forwards_func(apps, schema_editor):
         profession="Logistic manager - 8 years experience",
         photo="team_photo/team1.jpg",
         email="john@centerlogistic.com",
-        phone="+987412512543"
+        phone="+987412512543",
     )
     home_team_model.objects.create(
         pk=2,
@@ -138,7 +139,7 @@ def forwards_func(apps, schema_editor):
         profession="Software engineer",
         photo="team_photo/team2.jpg",
         email="daniel@centerlogistic.com",
-        phone="+987423252253"
+        phone="+987423252253",
     )
     home_team_model.objects.create(
         pk=3,
@@ -146,7 +147,7 @@ def forwards_func(apps, schema_editor):
         profession="Marketing specialist - 10 years experience",
         photo="team_photo/team3.jpg",
         email="anna@centerlogistic.com",
-        phone="+98735353456"
+        phone="+98735353456",
     )
 
 

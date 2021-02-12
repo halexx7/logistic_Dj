@@ -17,7 +17,7 @@ class Services(models.Model):
     name = models.CharField(verbose_name="services", max_length=128)
     image = models.ImageField(upload_to="services_images", blank=True)
     description = models.TextField(verbose_name="description", blank=True)
-    lifting = models.CharField(verbose_name="lifting", max_length=32) 
+    lifting = models.CharField(verbose_name="lifting", max_length=32)
     price = models.DecimalField(verbose_name="price", max_digits=8, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(verbose_name="quantity", default=0)
 
@@ -34,11 +34,9 @@ class News(models.Model):
         return f"{self.title} ({self.public_date})"
 
 
-
 class Benefits(models.Model):
     title = models.CharField(verbose_name="name", max_length=128)
     desc = models.TextField(verbose_name="description", blank=True)
-
 
 
 class Team(models.Model):
@@ -49,12 +47,8 @@ class Team(models.Model):
     phone = models.CharField(verbose_name="phone", max_length=20)
 
 
-
 class Contacts(models.Model):
     city = models.CharField(verbose_name="city", max_length=256)
     phone = models.CharField(verbose_name="phone", max_length=20)
     email = models.CharField(verbose_name="e-mail", max_length=128)
     address = models.CharField(verbose_name="address", max_length=512)
-
-    
-

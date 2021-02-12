@@ -6,14 +6,14 @@ from django.urls import path
 
 import mainapp.views as mainapp
 
-urlpatterns =[
+urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", mainapp.main, name='main'),
-    path("blog/", mainapp.blog, name='blog'),
-    path("text/", mainapp.text, name='text'),
-    path("text2/", mainapp.text2, name='text2'),
+    path("", mainapp.main, name="main"),
+    path("blog/", mainapp.blog, name="blog"),
+    path("text/", mainapp.text, name="text"),
+    path("text2/", mainapp.text2, name="text2"),
     path("services/", include("mainapp.urls", namespace="services")),
-    path("contact/", mainapp.contact, name='contact'),
+    path("contact/", mainapp.contact, name="contact"),
     path("auth/", include("authnapp.urls", namespace="auth")),
 ]
 

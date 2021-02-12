@@ -24,17 +24,17 @@ class ShopUserRegisterForm(UserCreationForm):
             field.help_text = ""
 
     def clean_age(self):
-        '''Age Validation'''
+        """Age Validation"""
         data = self.cleaned_data["age"]
         if data < 18:
             raise forms.ValidationError("Вы слишком молоды!")
         return data
 
     def clean_email(self):
-        '''Domain Validation'''
+        """Domain Validation"""
         data = self.cleaned_data["email"]
         if not data.endswith("@logistic.com"):
-            raise forms.ValidationError('Введен не корректный e-mail!')
+            raise forms.ValidationError("Введен не корректный e-mail!")
         return data
 
     class Meta:
@@ -50,17 +50,17 @@ class ShopUserEditForm(UserChangeForm):
             field.help_text = ""
 
     def clean_age(self):
-        '''Age Validation'''
+        """Age Validation"""
         data = self.cleaned_data["age"]
         if data < 18:
             raise forms.ValidationError("Вы слишком молоды!")
         return data
 
     def clean_email(self):
-        '''Domain Validation'''
+        """Domain Validation"""
         data = self.cleaned_data["email"]
         if not data.endswith("@logistic.com"):
-            raise forms.ValidationError('Введен не корректный e-mail!')
+            raise forms.ValidationError("Введен не корректный e-mail!")
         return data
 
     class Meta:

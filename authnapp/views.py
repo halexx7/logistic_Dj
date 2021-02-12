@@ -6,7 +6,6 @@ from django.urls import reverse
 from authnapp.forms import ShopUserEditForm, ShopUserLoginForm, ShopUserRegisterForm
 
 
-
 def login(request):
     title = "login"
 
