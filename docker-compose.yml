@@ -8,13 +8,5 @@ services:
     volumes:
       - .:/code
     ports:
-      - 6090:8000
+      - 8100:8000
     restart: always
-
-  adminer:
-    container_name: adminer
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-

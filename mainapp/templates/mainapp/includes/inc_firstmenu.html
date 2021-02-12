@@ -6,4 +6,17 @@
     <a class="nav__link" href="#" data-scroll="#mission">Mission</a>
     <a class="nav__link" href="{% url 'services:index' %}">Products</a>
     <a class="nav__link" href="{% url 'contact' %}">Contact Us</a>
+
+    {% if user.is_authenticated %}
+        <a class="nav__link" href="{% url 'auth:edit' %}">
+            {{ user.first_name|default:'User' }}
+        </a>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <a class="nav__link" href="{% url 'auth:logout' %}">Logout</a>
+    {% else %}
+        <a class="nav__link" href="{% url 'auth:login' %}">Login</a>
+    {% endif %}
+
 </nav>

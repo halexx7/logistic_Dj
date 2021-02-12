@@ -1,0 +1,38 @@
+[
+    {
+        "model": "mainapp.servicescategory",
+        "pk": 1,
+        "fields": {
+            "name": "Ground",
+            "name_long": "Ground shipping",
+            "desc_category": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
+        }
+    },
+    {
+        "model": "mainapp.servicescategory",
+        "pk": 2,
+        "fields": {
+            "name": "Railway",
+            "name_long": "Railway shipping",
+            "desc_category": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
+        }
+    },
+    {
+        "model": "mainapp.servicescategory",
+        "pk": 3,
+        "fields": {
+            "name": "Water",
+            "name_long": "Water shipping",
+            "desc_category": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
+        }
+    },
+    {
+        "model": "mainapp.servicescategory",
+        "pk": 4,
+        "fields": {
+            "name": "Air",
+            "name_long": "Air shipping",
+            "desc_category": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
+        }
+    }
+]

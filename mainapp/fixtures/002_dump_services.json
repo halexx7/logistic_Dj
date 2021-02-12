@@ -1,0 +1,41 @@
+[
+    {
+        "model": "mainapp.services",
+        "pk": 1,
+        "fields": {
+            "category": 1,
+            "name": "Gazel NEXT",
+            "image": "services_images/gazel.jpg",
+            "description": "The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+            "lifting": "5 tons",
+            "price": "100.00",
+            "quantity": 100
+        }
+    },
+    {
+        "model": "mainapp.services",
+        "pk": 2,
+        "fields": {
+            "category": 1,
+            "name": "Volvo FE350",
+            "image": "services_images/volvo_5.jpg",
+            "description": "The new generation of Volvo FL distribution trucks for intercity and short regional transport road tests using special methods",
+            "lifting": "10 tons",
+            "price": "1000.00",
+            "quantity": 20
+        }
+    },
+    {
+        "model": "mainapp.services",
+        "pk": 3,
+        "fields": {
+            "category": 1,
+            "name": "Volvo FH550",
+            "image": "services_images/volvo_10.jpg",
+            "description": "New generation features offered in the FH versions and the flagship FH16: a completely new, more spacious and comfortable",
+            "lifting": "40 tons",
+            "price": "10000.00",
+            "quantity": 10
+        }
+    }
+]

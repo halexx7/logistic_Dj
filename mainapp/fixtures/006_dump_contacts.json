@@ -1,0 +1,32 @@
+[
+    {
+        "model": "mainapp.contacts",
+        "pk": 1,
+        "fields": {
+            "city": "Moscow",
+            "phone": "+7 (999) 999-99-99",
+            "email": "lshop@logistic.com",
+            "address": "st. Tverskaya 100"
+        }
+    },
+    {
+        "model": "mainapp.contacts",
+        "pk": 2,
+        "fields": {
+            "city": "Ekaterinburg",
+            "phone": "+7 (999) 999-99-99",
+            "email": "shop-ekb@logistic.com",
+            "address": "st. Pushkinskaya 50"
+        }
+    },
+    {
+        "model": "mainapp.contacts",
+        "pk": 3,
+        "fields": {
+            "city": "Izhevsk",
+            "phone": "+7 (999) 999-99-99",
+            "email": "lshop-izh@logistic.com",
+            "address": "st. Udmurtskaya 200"
+        }
+    }
+]
