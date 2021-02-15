@@ -4,7 +4,7 @@
     <a class="nav__link" href="#" data-scroll="#benefits">Benefits</a>
     <a class="nav__link" href="#" data-scroll="#team">Team</a>
     <a class="nav__link" href="#" data-scroll="#mission">Mission</a>
-    <a class="nav__link" href="{% url 'services:index' %}">Products</a>
+    <a class="nav__link" href="{% url 'services:category' pk=0 %}">Products</a>
     <a class="nav__link" href="{% url 'contact' %}">Contact Us</a>
 
     {% if user.is_authenticated %}
@@ -18,5 +18,16 @@
     {% else %}
         <a class="nav__link" href="{% url 'auth:login' %}">Login</a>
     {% endif %}
+
+    <a class="nav__link" href="#">
+        <img class="search__img" src="/static/img/loupe_n.svg" alt="">
+    </a>
+
+    <a class="nav__link" href="{% url 'basket:view' %}">
+        <img class="basket__img" src="/static/img/shopping-cart_n.svg" alt="">
+        <span class="basket__count">
+            {% if basket %} {{ basket|length }} {% endif %}
+        </span>
+    </a>
 
 </nav>
