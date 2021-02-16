@@ -4943,6 +4943,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
 }
 
 .links__menu li {
+    padding: 0 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -5148,3 +5149,24 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
     width: 300px;
     border-radius: 25px;
 }
+
+.category-services {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img.search__img {
+    width: 20px;
+    height: 20px;
+}
+
+img.basket__img {
+    width: 20px;
+    height: 20px;
+}
+
+.basket__count {
+    padding: 0 10px;
+    text-decoration: none;
+}
+
