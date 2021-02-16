@@ -1,3 +1,5 @@
+import random
+
 from django.conf import settings
 from django.shortcuts import get_object_or_404, render
 import datetime
@@ -15,6 +17,7 @@ def main(request):
     news = News.objects.all()
     benefits_list = Benefits.objects.all()
     team = Team.objects.all()
+    basket = get_basket(request.user)
 
     content = {
         "title": title,
@@ -24,6 +27,7 @@ def main(request):
         "team": team,
         "news": news,
         "media_url": settings.MEDIA_URL,
+        "basket": basket,
         
     }
     return render(request, "mainapp/index.html", content)
@@ -52,11 +56,29 @@ def text2(request):
     content = {"title": title}
     return render(request, "mainapp/text-2.html", content)
 
+
+def get_basket(user):
+    if user.is_authenticated:
+        return Basket.objects.filter(user=user)
+    else:
+        return []
+
+
+def get_hot_services():
+    services = Services.objects.all()
+    return random.sample(list(services), 1)[0]
+
+
+def get_same_services(hot_services):
+    same_services = Services.objects.filter(category=hot_services.category).exclude(pk=hot_services.pk)[:3]
+    return same_services
+
+
 def services(request, pk=None):
     title = "services"
     links_menu = ServicesCategory.objects.all()
-    
-    basket = []
+    basket = get_basket(request.user)
+
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
         # or you can use this
@@ -79,13 +101,15 @@ def services(request, pk=None):
             "basket": basket,
         }
         return render(request, "mainapp/services_list.html", content)
-    same_services = Services.objects.all()
+    hot_services = get_hot_services()
+    same_services = get_same_services(hot_services)
     content = {
         "title": title,
-        "same_services": same_services,
         "links_menu": links_menu,
         "media_url": settings.MEDIA_URL,
         "basket": basket,
+        "same_services": same_services,
+        "hot_services": hot_services,
     }
     if pk:
         print(f"User select category: {pk}")

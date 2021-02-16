@@ -23,7 +23,26 @@
     
             <div class="team  intro__services">
 
-                {% for service in services %}
+                <!-- Hot price -->
+                <div class="team__col">
+                    <div class="team__items  services__items" data-aos="fade-in">
+                        <img class="team__photo  img  services__photo" src="{{ media_url }}{{ hot_services.image }}" alt="{{ hot_services.name }}">
+                        <div class="team__name">{{ hot_services.name }}</div>
+                        <div class="team__prof">{{ hot_services.description }}</div>
+                        <div class="intro__services-lifting">
+                            <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
+                            <p class="intro__services-text">{{ hot_services.lifting }}</p>
+                        </div>
+                        <div class="hot_price">
+                            <h3 class="red">горячее предложение</h3>
+                        </div>
+                        <div class="wrap__btn  btn--hot">
+                            <button class="btn btn--block btn--orange btn--order" href="#" type="button"><span>order</span></button>
+                        </div>
+                    </div><!-- /.team__items -->
+                </div><!-- /.team__col -->
+
+                {% for service in same_services %}
                     <div class="team__col">
                         <div class="team__items  services__items" data-aos="fade-in">
                             <img class="team__photo  img  services__photo" src="{{ media_url }}{{ service.image }}" alt="{{ service.name }}">

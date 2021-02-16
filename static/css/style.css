@@ -5022,7 +5022,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
 
 .wrap__btn {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 109px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -5168,5 +5168,16 @@ img.basket__img {
 .basket__count {
     padding: 0 10px;
     text-decoration: none;
+}
+
+.hot_price {
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-size: 24px;
+}
+
+.btn--hot {
+    margin-top: 40px;
 }
 
