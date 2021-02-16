@@ -25,7 +25,9 @@
     <a class="nav__link" href="{% url 'basket:view' %}">
         <img class="basket__img" src="/static/img/shopping-cart_n.svg" alt="">
         <span class="basket__count">
-            {% if basket %} {{ basket|length }} {% endif %}
+            {% if basket %} 
+                {{ basket.0.total_cost|floatformat:0 }} руб ({{ basket.0.total_quantity }} шт) 
+            {% endif %}
         </span>
     </a>
 </nav>
