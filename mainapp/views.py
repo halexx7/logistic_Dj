@@ -1,12 +1,12 @@
+import datetime
 import random
 
 from django.conf import settings
 from django.shortcuts import get_object_or_404, render
-import datetime
 
 from basketapp.models import Basket
 
-from .models import Services, ServicesCategory, News, Benefits, Team, Contacts
+from .models import Benefits, Contacts, News, Services, ServicesCategory, Team
 
 
 def main(request):
@@ -28,7 +28,6 @@ def main(request):
         "news": news,
         "media_url": settings.MEDIA_URL,
         "basket": basket,
-        
     }
     return render(request, "mainapp/index.html", content)
 

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "mainapp",
     "authnapp",
-    'basketapp',
+    "basketapp",
 ]
 
 
@@ -82,13 +82,13 @@ WSGI_APPLICATION = "logistic.wsgi.application"
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'post',
-        'USER': 'post',
-        'PASSWORD': 'post',
-        'HOST': 'db',
-        'PORT': 5432,
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "post",
+        "USER": "post",
+        "PASSWORD": "post",
+        "HOST": "db",
+        "PORT": 5432,
     }
 }
 
