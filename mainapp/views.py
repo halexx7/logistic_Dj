@@ -108,11 +108,22 @@ def services(request, pk=None):
         "media_url": settings.MEDIA_URL,
         "basket": basket,
         "same_services": same_services,
-        "hot_services": hot_services,
+        "hot": hot_services,
     }
     if pk:
         print(f"User select category: {pk}")
     return render(request, "mainapp/services.html", content)
+
+def service(request, pk):
+    title = "service"
+    content = {
+        "title": title,
+        "links_menu": ServicesCategory.objects.all(),
+        "service": get_object_or_404(Services, pk=pk),
+        "basket": get_basket(request.user),
+        "media_url": settings.MEDIA_URL,
+    }
+    return render(request, "mainapp/service.html", content)
 
 
 def contact(request):

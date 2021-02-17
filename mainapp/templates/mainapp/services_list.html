@@ -30,7 +30,7 @@
                         <div class="wrap__btn">
 
                             {% if user.is_authenticated %}
-                                <a class="btn btn--block btn--orange btn--order" href="{% url 'basket:add' service.pk %}" type="button"><span>order</span></a>
+                                <a class="btn btn--block btn--orange btn--order" href="{% url 'services:service' service.pk %}" type="button"><span>order</span></a>
                                 {% else %}
                                     <a class="btn btn--block btn--orange btn--order" href="{% url 'auth:login' %}" type="button"><span>order</span></a>
                                     {% endif %}
