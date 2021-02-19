@@ -21,28 +21,31 @@
 
             <h2 class="section__title"><span class="section__title-blue">Our</span> car fleet</h2>
     
+            <!-- Hot price -->
+            <div class="product__box">
+
+                <div class="product__left">
+                    <img class="team__photo  img  services__photo" src="{{ media_url }}{{ hot.image }}" alt="{{ hot.name }}">
+                </div>
+
+                <div class="product__right">
+                    <div class="product__name">{{ hot.name }}</div>
+                    <div class="team__prof">{{ hot.description }}</div>
+                    <div class="intro__services-lifting">
+                        <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
+                        <p class="intro__services-text">{{ hot.lifting }}</p>
+                    </div>
+                    <div class="hot_price">
+                        <h3 class="red">горячее предложение</h3>
+                    </div>
+                    <div class="wrap__btn  btn--hot">
+                        <a class="btn btn--block btn--orange btn--order" href="{% url 'basket:add' hot.pk %}" type="button"><span>order</span></a>
+                    </div>    
+                </div>
+
+            </div><!-- /.team__col -->
+
             <div class="team  intro__services">
-
-                <!-- Hot price -->
-
-                <div class="team__col">
-                    <div class="team__items  services__items" data-aos="fade-in">
-                        <img class="team__photo  img  services__photo" src="{{ media_url }}{{ hot.image }}" alt="{{ hot.name }}">
-                        <div class="team__name">{{ hot.name }}</div>
-                        <div class="team__prof">{{ hot.description }}</div>
-                        <div class="intro__services-lifting">
-                            <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
-                            <p class="intro__services-text">{{ hot.lifting }}</p>
-                        </div>
-                        <div class="hot_price">
-                            <h3 class="red">горячее предложение</h3>
-                        </div>
-                        <div class="wrap__btn">
-                            <a class="btn btn--block btn--orange btn--order" href="{% url 'basket:add' hot.pk %}" type="button"><span>order</span></a>
-                        </div>
-                    </div><!-- /.team__items -->
-                </div><!-- /.team__col -->
-
 
                 {% for service in same_services %}
                     <div class="team__col">

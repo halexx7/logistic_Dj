@@ -5270,3 +5270,36 @@ img.basket__img {
 	color: #555;
 }
 
+.product__box {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 800px;
+}
+
+.product__left {
+    width: 600px;
+    flex-basis: 50%;
+
+}
+
+
+.product__right {
+    padding: 50px;
+    flex-basis: 50%;
+}
+
+.product__name {
+    margin-bottom: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    line-height: 1.2rem;
+    color: #2C2C2C;
+    font-weight: 900;
+    text-align: center;
+}
+
+.btn--hot {
+    margin-top: 40px;
+}
