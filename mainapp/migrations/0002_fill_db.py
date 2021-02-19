@@ -56,6 +56,39 @@ def forwards_func(apps, schema_editor):
         name_long="Railway shipping",
         desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
     )
+
+     # Create new products in this category
+    serv_model.objects.create(
+        pk=4,
+        category=serv_cat_obj,  # Foreign key
+        name="«Tornado» № 60163",
+        image="services_images/railway_1.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
+    )
+    serv_model.objects.create(
+        pk=5,
+        category=serv_cat_obj,  # Foreign key
+        name="EMD SD40-2",
+        image="services_images/railway_2.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
+    )
+    serv_model.objects.create(
+        pk=6,
+        category=serv_cat_obj,  # Foreign key
+        name="Siemens ES64U4",
+        image="services_images/railway_3.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
+    )
+
     del serv_cat_obj  # Delete link for category
 
     # Create new category
@@ -65,6 +98,38 @@ def forwards_func(apps, schema_editor):
         name_long="Water shipping",
         desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
     )
+
+     # Create new products in this category
+    serv_model.objects.create(
+        pk=7,
+        category=serv_cat_obj,  # Foreign key
+        name="ТRPКСN project 941",
+        image="services_images/water_1.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
+    )
+    serv_model.objects.create(
+        pk=8,
+        category=serv_cat_obj,  # Foreign key
+        name="ROPAX",
+        image="services_images/water_2.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
+    )
+    serv_model.objects.create(
+        pk=9,
+        category=serv_cat_obj,  # Foreign key
+        name="Aurelia K",
+        image="services_images/water_3.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
+    )
     del serv_cat_obj  # Delete link for category
 
     # Create new category
@@ -73,6 +138,38 @@ def forwards_func(apps, schema_editor):
         name="Air",
         name_long="Air shipping",
         desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
+    )
+
+     # Create new products in this category
+    serv_model.objects.create(
+        pk=10,
+        category=serv_cat_obj,  # Foreign key
+        name="Ан-225",
+        image="services_images/air_3.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
+    )
+    serv_model.objects.create(
+        pk=11,
+        category=serv_cat_obj,  # Foreign key
+        name="MD-11",
+        image="services_images/air_2.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
+    )
+    serv_model.objects.create(
+        pk=12,
+        category=serv_cat_obj,  # Foreign key
+        name="Ju-290А-7",
+        image="services_images/air_1.jpg",
+        description="The reliability of the vehicle has been tested and confirmed by bench, forced and long-term road tests using special methods",
+        lifting="5 tons",
+        price="100.00",
+        quantity=100,
     )
 
     # Create news
