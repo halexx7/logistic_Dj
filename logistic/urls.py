@@ -7,7 +7,6 @@ from django.urls import path
 import mainapp.views as mainapp
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("", mainapp.main, name="main"),
     path("blog/", mainapp.blog, name="blog"),
     path("text/", mainapp.text, name="text"),
@@ -16,6 +15,7 @@ urlpatterns = [
     path("contact/", mainapp.contact, name="contact"),
     path("auth/", include("authnapp.urls", namespace="auth")),
     path("basket/", include("basketapp.urls", namespace="basket")),
+    path("admin/", include("adminapp.urls", namespace="admin")),
 ]
 
 if settings.DEBUG:
