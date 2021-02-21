@@ -73,6 +73,11 @@ def get_same_services(hot_services):
     return same_services
 
 
+def get_popular_goods(services):
+    popular_services = Services.objects.all().exclude(pk=services.pk)
+    return random.sample(list(popular_services), 3)
+
+
 def services(request, pk=None):
     title = "services"
     links_menu = ServicesCategory.objects.all()
@@ -101,13 +106,12 @@ def services(request, pk=None):
         }
         return render(request, "mainapp/services_list.html", content)
     hot_services = get_hot_services()
-    same_services = get_same_services(hot_services)
     content = {
         "title": title,
         "links_menu": links_menu,
         "media_url": settings.MEDIA_URL,
         "basket": basket,
-        "same_services": same_services,
+        "popular": get_popular_goods(hot_services),
         "hot": hot_services,
     }
     if pk:
@@ -116,11 +120,13 @@ def services(request, pk=None):
 
 def service(request, pk):
     title = "service"
+    service = get_object_or_404(Services, pk=pk)
     content = {
         "title": title,
         "links_menu": ServicesCategory.objects.all(),
-        "service": get_object_or_404(Services, pk=pk),
+        "service": service,
         "basket": get_basket(request.user),
+        "popular": get_popular_goods(service),
         "media_url": settings.MEDIA_URL,
     }
     return render(request, "mainapp/service.html", content)
