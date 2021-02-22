@@ -45,26 +45,32 @@
 
             </div><!-- /.team__col -->
 
-            <div class="team  intro__services">
 
-                {% for service in same_services %}
-                    <div class="team__col">
-                        <div class="team__items  services__items" data-aos="fade-in">
-                            <img class="team__photo  img  services__photo" src="{{ media_url }}{{ service.image }}" alt="{{ service.name }}">
-                            <div class="team__name">{{ service.name }}</div>
-                            <div class="team__prof">{{ service.description }}</div>
-                            <div class="intro__services-lifting">
-                                <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
-                                <p class="intro__services-text">{{ service.lifting }}</p>
-                            </div>
-                            <div class="wrap__btn">
-                                <a class="btn btn--block btn--orange btn--order" href="{% url 'basket:add' service.pk %}" type="button"><span>order</span></a>
-                            </div>
-                        </div><!-- /.team__items -->
-                    </div><!-- /.team__col -->
-                {% endfor %}
-    
-            </div><!-- /.team -->
+            <div class="wrapper_popular">
+                <h2 class="popular_services">Popular goods</h3>
+
+                <div class="team  intro__services">
+
+                    {% for service in popular %}
+                        <div class="team__col">
+                            <div class="team__items  services__items" data-aos="fade-in">
+                                <img class="team__photo  img  services__photo" src="{{ media_url }}{{ service.image }}" alt="{{ service.name }}">
+                                <div class="team__name">{{ service.name }}</div>
+                                <div class="team__prof">{{ service.description }}</div>
+                                <div class="intro__services-lifting">
+                                    <img class="intro__services-icon" src="/static/img/lifting_auto.svg" alt="">
+                                    <p class="intro__services-text">{{ service.lifting }}</p>
+                                </div>
+                                <div class="wrap__btn">
+                                    <a class="btn btn--block btn--orange btn--order" href="{% url 'basket:add' service.pk %}" type="button"><span>order</span></a>
+                                </div>
+                            </div><!-- /.team__items -->
+                        </div><!-- /.team__col -->
+                    {% endfor %}
+        
+                </div><!-- /.team -->
+            </div>
+
         </div><!-- /.container -->
     </section>
 {% endblock content %}
