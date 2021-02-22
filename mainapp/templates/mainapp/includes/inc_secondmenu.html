@@ -3,7 +3,7 @@
     <a class="nav__link  {% if request.resolver_match.url_name == 'blog' %}active{% endif %}" href="{% url 'blog' %}">Blog</a>
     <a class="nav__link  {% if request.resolver_match.url_name == 'text2' %}active{% endif %}" href="{% url 'text2' %}">Terms &amp; Conditions</a>
     <a class="nav__link  {% if request.resolver_match.url_name == 'text' %}active{% endif %}" href="{% url 'text' %}">Privacy</a>
-    <a class="nav__link  {% if request.resolver_match.namespace == 'services' %}active{% endif %}" href="{% url 'services:category' pk=0 %}">Product</a>
+    <a class="nav__link  {% if request.resolver_match.namespace == 'services' %}active{% endif %}" href="{% url 'services:index' %}">Product</a>
     <a class="nav__link  {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact Us</a>
 
     {% if user.is_authenticated %}
@@ -25,7 +25,9 @@
     <a class="nav__link" href="{% url 'basket:view' %}">
         <img class="basket__img" src="/static/img/shopping-cart_n.svg" alt="">
         <span class="basket__count">
-            {% if basket %} {{ basket|length }} {% endif %}
+            {% if basket %} 
+                {{ basket.0.total_cost|floatformat:0 }} руб ({{ basket.0.total_quantity }} шт) 
+            {% endif %}
         </span>
     </a>
 </nav>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Services, ServicesCategory, News, Benefits, Team, Contacts
+from .models import Benefits, Contacts, News, Services, ServicesCategory, Team
 
 admin.site.register(ServicesCategory)
 admin.site.register(Services)
