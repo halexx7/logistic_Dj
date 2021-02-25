@@ -138,7 +138,7 @@ def products(request, pk):
     category = get_object_or_404(ServicesCategory, pk=pk)
     products_list = Services.objects.filter(category__pk=pk).order_by("name")
     content = {"title": title, "category": category, "objects": products_list, "media_url": settings.MEDIA_URL}
-    return render(request, "adminapp/Services.html", content)
+    return render(request, "adminapp/products.html", content)
 
 
 def product_create(request, pk):

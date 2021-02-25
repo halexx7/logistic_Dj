@@ -9,8 +9,6 @@
         {% csrf_token %}
         <input class="btn btn-danger" type="submit" value="удалить">
     </form>
-    <button class="btn btn-success">
-        <a href="{% url 'admin:categories' %}">отмена</a>
-    </button>
+    <a class="btn btn-round form-control last" role="button" href="{% url 'admin:categories' %}">отмена</a>
 </div>
 {% endblock %}
