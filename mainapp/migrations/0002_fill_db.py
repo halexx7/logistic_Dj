@@ -57,7 +57,7 @@ def forwards_func(apps, schema_editor):
         desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
     )
 
-     # Create new products in this category
+    # Create new products in this category
     serv_model.objects.create(
         pk=4,
         category=serv_cat_obj,  # Foreign key
@@ -99,7 +99,7 @@ def forwards_func(apps, schema_editor):
         desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
     )
 
-     # Create new products in this category
+    # Create new products in this category
     serv_model.objects.create(
         pk=7,
         category=serv_cat_obj,  # Foreign key
@@ -140,7 +140,7 @@ def forwards_func(apps, schema_editor):
         desc_category="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
     )
 
-     # Create new products in this category
+    # Create new products in this category
     serv_model.objects.create(
         pk=10,
         category=serv_cat_obj,  # Foreign key

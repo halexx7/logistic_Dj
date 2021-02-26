@@ -8,6 +8,7 @@ class ServicesCategory(models.Model):
     name = models.CharField(verbose_name="name_category", max_length=32, unique=True)
     name_long = models.CharField(verbose_name="name_long", max_length=64)
     desc_category = models.TextField(verbose_name="description")
+    is_active = models.BooleanField(verbose_name="category_is_active", default=True)
 
     def __str__(self):
         return self.name

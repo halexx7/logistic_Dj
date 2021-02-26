@@ -118,8 +118,10 @@ def services(request, pk=None):
         print(f"User select category: {pk}")
     return render(request, "mainapp/services.html", content)
 
+
 def service(request, pk):
     title = "service"
+
     service = get_object_or_404(Services, pk=pk)
     content = {
         "title": title,
