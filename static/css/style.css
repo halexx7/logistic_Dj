@@ -5457,13 +5457,14 @@ img.basket__img {
     display: block;
     float: left;
     height: 125px;
-    width: 125px;
+    min-width: 125px;
     border-radius: 25px;
 }
 
 
 .new_category_form {
     margin: 0 auto;
+    margin-bottom: 50px;
     width: 600px;
 }
 
@@ -5657,6 +5658,7 @@ img.basket__img {
 
 .admin_menu {
     display: block;
+    margin-bottom: 40px;
     left: 15px;
     top: 20px;
     height: 40px;
@@ -5664,7 +5666,6 @@ img.basket__img {
 }
 
 .admin_menu ul.menu {
-    display: block;
     float: none;
     width: 550px;
     height: 50px;
@@ -5708,4 +5709,80 @@ img.basket__img {
     color: #8c8c8c;
     font-weight: 700;
     border-bottom: 3px solid #212121;
+}
+
+.admin__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__admin {
+    margin: 5px 0;
+    padding: 3px 5px;
+    display: inline-block;
+
+    text-align: center; 
+}
+
+.new_user {
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 30px;
+}
+
+.category__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.category_delete--text {
+    text-align: center;
+}
+
+.category__delete--delete {
+    margin: 5px 20px;
+    padding: 8px 24px;
+    
+    font-size: 1rem;
+    outline: none;
+    border: none;
+}
+
+.category__delete--cancel {
+    max-width: 110px;
+    border: none;
+    padding: 5px 8px;
+
+    border-radius: 0%;
+}
+
+
+.new_category_form--save {
+    max-width: 50%;
+}
+
+.new_category_form--btn {
+    margin: 10px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new_category_form--back {
+    display: inline-block;
+    max-width: 50%;
+}
+
+.new_category_form--back_back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-btn__reed {
+    width: 100%;
 }

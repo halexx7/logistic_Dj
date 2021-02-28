@@ -4,26 +4,18 @@
 
 {% block content %}
 <div class="products_list">
-    <button class="new_product">
-        <a href={% url 'admin:product_create' category.pk %}>новый продукт</a>
-    </button>
+    <a class="btn__admin btn-outline-primary" href="{% url 'admin:product_create' category.pk %}" role="button">новый продукт</a>
 
     {% for object in objects %}
-    <div class="product_record">
-        <img src="{{ media_url }}{{ object.image|default:'products_images/default.jpg' }}" alt="{{ object.name }}">
+    <div class="product_record {% if not object.is_active %}not_active{% endif %}">
+        <img class="product__record__img" src="{{ media_url }}{{ object.image|default:'services_images/default.jpg' }}" alt="{{ object.name }}">
         <div class="product_name">
             {{ object.name|title }}
         </div>
         <div class="product_actions">
-            <button>
-                <a href={% url 'admin:product_read' object.pk %}>подробнее</a>
-            </button>
-            <button>
-                <a href={% url 'admin:product_update' object.pk %}>редактировать</a>
-            </button>
-            <button>
-                <a href={% url 'admin:product_delete' object.pk %}>удалить</a>
-            </button>
+            <a class="btn__admin  bg-warning text-dark" href="{% url 'admin:product_read' object.pk %}">подробнее</a>
+            <a class="btn__admin  text-success" href="{% url 'admin:product_update' object.pk %}">редактировать</a>
+            <a class="btn__admin  text-danger" href="{% url 'admin:product_delete' object.pk %}" role="button">удалить</a>
         </div>
         <div class="summary">
             <b>цена</b>
@@ -32,7 +24,7 @@
             <p>{{ object.quantity }}</p>
         </div>
         <div class="product_desc">
-            {{ object.description|title }}
+            {{ object.short_desc|title }}
         </div>
     </div>
     {% endfor %}

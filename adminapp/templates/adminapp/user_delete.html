@@ -4,16 +4,21 @@
 
 {% block content %}
 <div class="user_delete">
-    Уверены, что хотите удалить {{ user_to_delete.username }} {% if user_to_delete.first_name %}
-    ({{ user_to_delete.first_name|title }}</b>
-    {% if user_to_delete.last_name %}
-    {{ user_to_delete.last_name|title }}
-    {% endif %})
-    {% endif %}?
-    <form action="{% url 'admin:user_delete' user_to_delete.pk %}" method="post">
-        {% csrf_token %}
-        <input class="btn btn-danger" type="submit" value="удалить">
-    </form>
-    <a class="btn btn-round form-control last" role="button" href="{% url 'admin:users' %}">отмена</a>
+    <p class="category_delete--text">
+        Уверены, что хотите удалить {{ user_to_delete.username }} 
+        {% if user_to_delete.first_name %}
+        ({{ user_to_delete.first_name|title }}</b>
+        {% if user_to_delete.last_name %}
+        {{ user_to_delete.last_name|title }}
+        {% endif %})
+        {% endif %}?
+    </p>
+    <div class="category__form">
+        <form action="{% url 'admin:user_delete' user_to_delete.pk %}" method="post">
+            {% csrf_token %}
+            <input class="category__delete--delete  btn__admin  bg-danger  text-white" type="submit" value="удалить">
+        </form>
+        <a class="btn__admin  bg-success  text-white  category__delete--cancel form-control" role="button" href="{% url 'admin:users' %}">отмена</a>
+    </div>
 </div>
 {% endblock content %}
