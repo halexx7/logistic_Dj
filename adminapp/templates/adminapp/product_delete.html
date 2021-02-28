@@ -4,9 +4,9 @@
 
 {% block content %}
 <div class="product_delete">
-    <p class="category_delete--text">Уверены, что хотите удалить продукт <strong>{{ product_to_delete.name }}</strong>?</p>
+    <p class="category_delete--text">Уверены, что хотите удалить продукт <strong>{{ object.name }}</strong>?</p>
     <div class="category__form">
-        <form action="{% url 'admin:product_delete' product_to_delete.pk %}" method="post">
+        <form action="{% url 'admin:product_delete' object.pk %}" method="post">
             {% csrf_token %}
             <input class="category__delete--delete  btn__admin  bg-danger  text-white" type="submit" value="удалить">
         </form>
