@@ -5154,6 +5154,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
 .category-services {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 img.search__img {
