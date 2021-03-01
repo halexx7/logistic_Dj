@@ -103,7 +103,7 @@ class ProductCategoryUpdateView(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         qs = super().get_queryset()
         return qs
-            
+
 
 class ProductCategoryDeleteView(LoginRequiredMixin, DeleteView):
     model = ServicesCategory
@@ -126,22 +126,16 @@ def products(request, pk):
     return render(request, "adminapp/products.html", content)
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def product_create(request, pk):
-    title = "продукт/создание"
-    category = get_object_or_404(ServicesCategory, pk=pk)
+class ProductCreateView(LoginRequiredMixin, CreateView):
+    model = Services
+    template_name = "adminapp/product_update.html"
+    success_url = reverse_lazy("admin:products")
+    fields = "__all__"
 
-    if request.method == "POST":
-        product_form = ProductEditForm(request.POST, request.FILES)
-        if product_form.is_valid():
-            product_form.save()
-            return HttpResponseRedirect(reverse("admin:products", args=[pk]))
-    else:
-        # set initial value for form
-        product_form = ProductEditForm(initial={"category": category})
-
-    content = {"title": title, "update_form": product_form, "category": category, "media_url": settings.MEDIA_URL}
-    return render(request, "adminapp/product_update.html", content)
+    def get_context_data(self, **kwargs):
+        context = super(ProductCreateView, self).get_context_data(**kwargs)
+        context["title"] = "продукт/создание"
+        return context
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):
@@ -149,37 +143,30 @@ class ProductDetailView(LoginRequiredMixin, DetailView):
     template_name = "adminapp/product_read.html"
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def product_update(request, pk):
-    title = "продукт/редактирование"
-    edit_product = get_object_or_404(Services, pk=pk)
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
+    model = Services
+    template_name = "adminapp/product_update.html"
+    success_url = reverse_lazy("admin:product_update")
+    fields = "__all__"
 
-    if request.method == "POST":
-        edit_form = ProductEditForm(request.POST, request.FILES, instance=edit_product)
-        if edit_form.is_valid():
-            edit_form.save()
-            return HttpResponseRedirect(reverse("admin:product_update", args=[edit_product.pk]))
-    else:
-        edit_form = ProductEditForm(instance=edit_product)
-
-    content = {
-        "title": title,
-        "update_form": edit_form,
-        "category": edit_product.category,
-        "media_url": settings.MEDIA_URL,
-    }
-    return render(request, "adminapp/product_update.html", content)
+    def get_context_data(self, **kwargs):
+        context = super(ProductUpdateView, self).get_context_data(**kwargs)
+        context["title"] = "продукт/редактирование"
+        return context
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def product_delete(request, pk):
-    title = "продукт/удаление"
-    product = get_object_or_404(Services, pk=pk)
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
+    model = Services
+    template_name = "adminapp/product_delete.html"
+    success_url = reverse_lazy("admin:products")
 
-    if request.method == "POST":
-        product.is_active = False
-        product.save()
-        return HttpResponseRedirect(reverse("admin:products", args=[product.category.pk]))
+    def get_context_data(self, **kwargs):
+        context = super(ProductDeleteView, self).get_context_data(**kwargs)
+        context["title"] = "продукт/удаление"
+        return context
 
-    content = {"title": title, "product_to_delete": product, "media_url": settings.MEDIA_URL}
-    return render(request, "adminapp/product_delete.html", content)
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_active = False
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())

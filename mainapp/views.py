@@ -126,8 +126,8 @@ def services(request, pk=None, page=1):
         print(f"User select category: {pk}")
     return render(request, "mainapp/services.html", content)
 
+
 def products(request, pk=None, page=1):
-   
 
     if pk is not None:
         if pk == 0:

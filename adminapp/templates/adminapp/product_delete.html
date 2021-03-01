@@ -10,7 +10,7 @@
             {% csrf_token %}
             <input class="category__delete--delete  btn__admin  bg-danger  text-white" type="submit" value="удалить">
         </form>
-        <a class="btn__admin  bg-success  text-white  category__delete--cancel  form-control" href="{% url 'admin:products' product_to_delete.category.pk %}" role="button">
+        <a class="btn__admin  bg-success  text-white  category__delete--cancel  form-control" href="{% url 'admin:products' object.category.pk %}" role="button">
             отмена
         </a>
     </div>
