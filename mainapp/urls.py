@@ -1,12 +1,14 @@
-from django.urls import path
+from django.urls import re_path
 
 import mainapp.views as mainapp
 
-app_name = "mainapp"
+from .apps import MainappConfig
+
+app_name = MainappConfig.name
 
 urlpatterns = [
-    path("", mainapp.services, name="index"),
-    path("category/<int:pk>/", mainapp.services, name="category"),
-    path("category/<int:pk>/page/<int:page>/", mainapp.services, name="page"),
-    path("service/<int:pk>/", mainapp.service, name="service"),
+    re_path(r"^$", mainapp.services, name="index"),
+    re_path(r"^category/(?P<pk>\d+)/$", mainapp.services, name="category"),
+    re_path(r"^category/(?P<pk>\d+)/page/(?P<page>\d+)/$", mainapp.services, name="page"),
+    re_path(r"^service/(?P<pk>\d+)/$", mainapp.service, name="service"),
 ]

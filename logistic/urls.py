@@ -1,21 +1,20 @@
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import path
+from django.urls import re_path
 
 import mainapp.views as mainapp
 
 urlpatterns = [
-    path("", mainapp.main, name="main"),
-    path("blog/", mainapp.blog, name="blog"),
-    path("text/", mainapp.text, name="text"),
-    path("text2/", mainapp.text2, name="text2"),
-    path("services/", include("mainapp.urls", namespace="services")),
-    path("contact/", mainapp.contact, name="contact"),
-    path("auth/", include("authnapp.urls", namespace="auth")),
-    path("basket/", include("basketapp.urls", namespace="basket")),
-    path("admin/", include("adminapp.urls", namespace="admin")),
+    re_path(r"^$", mainapp.main, name="main"),
+    re_path(r"^blog/", mainapp.blog, name="blog"),
+    re_path(r"^text/", mainapp.text, name="text"),
+    re_path(r"^text2/", mainapp.text2, name="text2"),
+    re_path(r"^services/", include("mainapp.urls", namespace="services")),
+    re_path(r"^contact/", mainapp.contact, name="contact"),
+    re_path(r"^auth/", include("authnapp.urls", namespace="auth")),
+    re_path(r"^basket/", include("basketapp.urls", namespace="basket")),
+    re_path(r"^admin/", include("adminapp.urls", namespace="admin")),
 ]
 
 if settings.DEBUG:
