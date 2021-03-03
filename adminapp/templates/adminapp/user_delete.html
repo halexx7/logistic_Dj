@@ -5,16 +5,16 @@
 {% block content %}
 <div class="user_delete">
     <p class="category_delete--text">
-        Уверены, что хотите удалить {{ user_to_delete.username }} 
-        {% if user_to_delete.first_name %}
-        ({{ user_to_delete.first_name|title }}</b>
-        {% if user_to_delete.last_name %}
-        {{ user_to_delete.last_name|title }}
+        Уверены, что хотите удалить {{ object.username }} 
+        {% if object.first_name %}
+        ({{ object.first_name|title }}</b>
+        {% if object.last_name %}
+        {{ object.last_name|title }}
         {% endif %})
         {% endif %}?
     </p>
     <div class="category__form">
-        <form action="{% url 'admin:user_delete' user_to_delete.pk %}" method="post">
+        <form action="{% url 'admin:user_delete' object.pk %}" method="post">
             {% csrf_token %}
             <input class="category__delete--delete  btn__admin  bg-danger  text-white" type="submit" value="удалить">
         </form>

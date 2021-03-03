@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="products_list">
-    <a class="btn__admin btn-outline-primary" href="{% url 'admin:product_create' category.pk %}" role="button">новый продукт</a>
+    <a class="btn__admin btn-outline-primary" href="{% url 'admin:product_update' category.pk %}" role="button">новый продукт</a>
 
     {% for object in objects %}
     <div class="product_record {% if not object.is_active %}not_active{% endif %}">
@@ -22,9 +22,6 @@
             <p>{{ object.price }} руб</p>
             <b>количество</b>
             <p>{{ object.quantity }}</p>
-        </div>
-        <div class="product_desc">
-            {{ object.short_desc|title }}
         </div>
     </div>
     {% endfor %}
