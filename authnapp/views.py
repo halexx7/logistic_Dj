@@ -4,7 +4,8 @@ from django.core.mail import send_mail
 from django.shortcuts import HttpResponseRedirect, render
 from django.urls import reverse
 
-from authnapp.forms import ShopUserEditForm, ShopUserLoginForm, ShopUserRegisterForm
+from authnapp.forms import (ShopUserEditForm, ShopUserLoginForm,
+                            ShopUserRegisterForm)
 from authnapp.models import ShopUser
 
 

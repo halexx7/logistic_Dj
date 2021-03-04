@@ -28,7 +28,6 @@ def main(request):
         "team": team,
         "news": news,
         "media_url": settings.MEDIA_URL,
-        "basket": basket,
     }
     return render(request, "mainapp/index.html", content)
 
@@ -110,7 +109,6 @@ def services(request, pk=None, page=1):
             "category": category,
             "links_menu": links_menu,
             "media_url": settings.MEDIA_URL,
-            "basket": basket,
         }
         return render(request, "mainapp/services_list.html", content)
     hot_services = get_hot_services()
@@ -118,7 +116,6 @@ def services(request, pk=None, page=1):
         "title": title,
         "links_menu": links_menu,
         "media_url": settings.MEDIA_URL,
-        "basket": basket,
         "popular": get_popular_goods(hot_services),
         "hot": hot_services,
     }
@@ -135,7 +132,7 @@ def service(request, pk):
         "title": title,
         "links_menu": ServicesCategory.objects.all(),
         "service": service,
-        "basket": get_basket(request.user),
+        # "basket": get_basket(request.user),
         "popular": get_popular_goods(service),
         "media_url": settings.MEDIA_URL,
     }
