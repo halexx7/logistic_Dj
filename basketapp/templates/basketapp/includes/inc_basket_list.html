@@ -16,7 +16,7 @@
 
 {% if basket_items %}
 <div class="basket_summary">
-    В корзине {{ basket_items.0.total_quantity }} товаров общей стоимостью
-    {{ basket_items.0.total_cost }} руб
+    В корзине <span style="font-weight: bold;" id="idTotalQuantity">{{ basket_items.0.total_quantity }}</span> товаров общей стоимостью
+    <span style="font-weight: bold;" id="idTotalCoast">{{ basket_items.0.total_cost }}</span> руб
 </div>
 {% endif %}

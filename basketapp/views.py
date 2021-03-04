@@ -56,6 +56,9 @@ def basket_edit(request, pk, quantity):
             new_basket_item.save()
         else:
             new_basket_item.delete()
+        
+        total_q = new_basket_item.total_quantity
+        total_c = new_basket_item.total_cost
 
         basket_items = Basket.objects.filter(user=request.user).order_by("service__category")
 
@@ -63,4 +66,4 @@ def basket_edit(request, pk, quantity):
 
         result = render_to_string("basketapp/includes/inc_basket_list.html", content)
 
-        return JsonResponse({"result": result})
+        return JsonResponse({"result": result, "tq": total_q, "tc": total_c})
