@@ -2,6 +2,7 @@ import datetime
 import random
 
 from django.conf import settings
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
 
 from basketapp.models import Basket
@@ -78,27 +79,34 @@ def get_popular_goods(services):
     return random.sample(list(popular_services), 3)
 
 
-def services(request, pk=None):
+def services(request, pk=None, page=1):
     title = "services"
     links_menu = ServicesCategory.objects.all()
     basket = get_basket(request.user)
 
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
-        # or you can use this
-        # _basket = request.user.basket.all()
-        # print(f'basket / _basket: {len(_basket)} / {len(basket)}')
 
     if pk is not None:
         if pk == 0:
-            services = Services.objects.all().order_by("price")
-            category = {"name": "All"}
+            category = {"pk": 0, "name": "All"}
+            services = Services.objects.filter(is_active=True, category__is_active=True).order_by("price")
         else:
             category = get_object_or_404(ServicesCategory, pk=pk)
-            services = Services.objects.filter(category__pk=pk).order_by("price")
+            services = Services.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by(
+                "price"
+            )
+
+        paginator = Paginator(services, 2)
+        try:
+            services_paginator = paginator.page(page)
+        except PageNotAnInteger:
+            services_paginator = paginator.page(1)
+        except EmptyPage:
+            services_paginator = paginator.page(paginator.num_pages)
         content = {
             "title": title,
-            "services": services,
+            "services": services_paginator,
             "category": category,
             "links_menu": links_menu,
             "media_url": settings.MEDIA_URL,
@@ -117,6 +125,48 @@ def services(request, pk=None):
     if pk:
         print(f"User select category: {pk}")
     return render(request, "mainapp/services.html", content)
+
+
+def products(request, pk=None, page=1):
+
+    if pk is not None:
+        if pk == 0:
+            category = {"pk": 0, "name": "все"}
+            products = Product.objects.filter(is_active=True, category__is_active=True).order_by("price")
+        else:
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by(
+                "price"
+            )
+
+        paginator = Paginator(products, 2)
+        try:
+            products_paginator = paginator.page(page)
+        except PageNotAnInteger:
+            products_paginator = paginator.page(1)
+        except EmptyPage:
+            products_paginator = paginator.page(paginator.num_pages)
+
+        content = {
+            "title": title,
+            "links_menu": links_menu,
+            "category": category,
+            "products": products_paginator,
+            "media_url": settings.MEDIA_URL,
+            "basket": basket,
+        }
+        return render(request, "mainapp/products_list.html", content)
+    hot_product = get_hot_product()
+    same_products = get_same_products(hot_product)
+    content = {
+        "title": title,
+        "links_menu": links_menu,
+        "same_products": same_products,
+        "media_url": settings.MEDIA_URL,
+        "basket": basket,
+        "hot_product": hot_product,
+    }
+    return render(request, "mainapp/products.html", content)
 
 
 def service(request, pk):

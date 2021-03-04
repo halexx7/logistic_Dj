@@ -6,11 +6,13 @@
 <div class="new_category_form">
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ update_form.as_p }}
-        <input class="form-control" type="submit" value="сохранить">
+        {{ form.as_p }}
+        <div class="new_category_form--btn">
+            <input class="form-control  bg-success  text-white  new_category_form--save" type="submit" value="сохранить">
+        </div>
     </form>
-    <a class="btn btn-round form-control last" role="button" href="{% url 'admin:categories' %}">
-        к списку категорий
-    </a>
+    <div class="new_category_form--back_back">
+        <button class="form-control  new_category_form--back" href="{% url 'admin:categories' %}">к списку категорий</button>
+    </div>
 </div>
 {% endblock content %}

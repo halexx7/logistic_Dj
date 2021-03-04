@@ -1,5 +1,5 @@
 {% extends 'mainapp/base.html' %}
-{% load staticfiles %}
+{% load staticfiles mail_to %}
 
 
 {% block menu %}
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="contact__item">
                                     <h3 class="contact__title">EMAIL</h3>
-                                    <p class="contact__data">{{ contact.email }}</p>
+                                    <p class="contact__data">{{ contact.email|mail_to }}</p>
                                 </div>
                                 <div class="contact__item">
                                     <h3 class="contact__title">ADDRESS</h3>
