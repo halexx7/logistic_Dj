@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import re_path
 
 import adminapp.views as adminapp
 
@@ -7,18 +7,18 @@ from .apps import AdminappConfig
 app_name = AdminappConfig.name
 
 urlpatterns = [
-    path("", adminapp.admin_main, name="admin_main"),
-    path("users/create/", adminapp.UsersCreateView.as_view(), name="user_create"),
-    path("users/read/", adminapp.UsersListView.as_view(), name="users"),
-    path("users/update/<int:pk>/", adminapp.UsersUpdateView.as_view(), name="user_update"),
-    path("users/delete/<int:pk>/", adminapp.UsersDeleteView.as_view(), name="user_delete"),
-    path("categories/create/", adminapp.ProductCategoryCreateView.as_view(), name="category_create"),
-    path("categories/read/", adminapp.categories, name="categories"),
-    path("categories/update/<int:pk>/", adminapp.ProductCategoryUpdateView.as_view(), name="category_update"),
-    path("categories/delete/<int:pk>/", adminapp.ProductCategoryDeleteView.as_view(), name="category_delete"),
-    path("products/create/category/<int:pk>/", adminapp.ProductCreateView.as_view(), name="product_create"),
-    path("products/read/category/<int:pk>/", adminapp.products, name="products"),
-    path("products/read/<int:pk>/", adminapp.ProductDetailView.as_view(), name="product_read"),
-    path("products/update/<int:pk>/", adminapp.ProductUpdateView.as_view(), name="product_update"),
-    path("products/delete/<int:pk>/", adminapp.ProductDeleteView.as_view(), name="product_delete"),
+    re_path(r"^$", adminapp.admin_main, name="admin_main"),
+    re_path(r"^users/create/$", adminapp.UsersCreateView.as_view(), name="user_create"),
+    re_path(r"^users/read/$", adminapp.UsersListView.as_view(), name="users"),
+    re_path(r"^users/update/(?P<pk>\d+)/$", adminapp.UsersUpdateView.as_view(), name="user_update"),
+    re_path(r"^users/delete/(?P<pk>\d+)/$", adminapp.UsersDeleteView.as_view(), name="user_delete"),
+    re_path(r"^categories/create/$", adminapp.ProductCategoryCreateView.as_view(), name="category_create"),
+    re_path(r"^categories/read/$", adminapp.categories, name="categories"),
+    re_path(r"^categories/update/(?P<pk>\d+)/$", adminapp.ProductCategoryUpdateView.as_view(), name="category_update"),
+    re_path(r"^categories/delete/(?P<pk>\d+)/$", adminapp.ProductCategoryDeleteView.as_view(), name="category_delete"),
+    re_path(r"^products/create/category/(?P<pk>\d+)/$", adminapp.ProductCreateView.as_view(), name="product_create"),
+    re_path(r"^products/read/category/(?P<pk>\d+)/$", adminapp.products, name="products"),
+    re_path(r"^products/read/(?P<pk>\d+)/$", adminapp.ProductDetailView.as_view(), name="product_read"),
+    re_path(r"^products/update/(?P<pk>\d+)/$", adminapp.ProductUpdateView.as_view(), name="product_update"),
+    re_path(r"^products/delete/(?P<pk>\d+)/$", adminapp.ProductDeleteView.as_view(), name="product_delete"),
 ]

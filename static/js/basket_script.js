@@ -33,8 +33,19 @@ jQuery(document).ready(function () {
             $.ajax({
                 url: "/basket/edit/" + target_href.name + "/" + target_href.value + "/",
                 success: function (data) {
-                    $('.basket_list').html(data.result);
-                    console.log('ajax done');
+                    console.log(data.tq);
+                    console.log(data.tc);
+
+                    if (target_href.value == 0) {
+                        $('.basket_list').html(data.result);
+                        console.log('ajax done-1');
+                    } else {
+                        $('#idTotalQuantity').html(data.tq);
+                        $('#idTotalCoast').html(data.tc);
+                        console.log('ajax done-2');
+                        
+                    };
+                    
                 },
             });
         }
