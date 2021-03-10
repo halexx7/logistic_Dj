@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
-from django.urls import re_path
+from django.urls import path, re_path
 
 import mainapp.views as mainapp
 
@@ -15,6 +15,7 @@ urlpatterns = [
     re_path(r"^auth/", include("authnapp.urls", namespace="auth")),
     re_path(r"^basket/", include("basketapp.urls", namespace="basket")),
     re_path(r"^admin/", include("adminapp.urls", namespace="admin")),
+    path("", include("social_django.urls", namespace="social")),
 ]
 
 if settings.DEBUG:
