@@ -6,9 +6,7 @@
 <div class="basket_list">
     {% include 'basketapp/includes/inc_basket_list.html' %}
 </div>
-<button class="btn-light">
-    <a href="{% url 'main' %}">
-        на главную
-    </a>
-</button>
+<a class="btn  btn-warning" href="{% url 'main' %}" role="button">
+    на главную
+</a>
 {% endblock %}
