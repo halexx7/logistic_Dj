@@ -58,6 +58,10 @@ ul, ol {
     text-align: center;
 }
 
+a:hover {
+    color: #fff;
+}
+
 /* Vendor libs */
 /* Slider */
 .slick-slider {
@@ -5786,4 +5790,9 @@ img.basket__img {
 
 .product-btn__reed {
     width: 100%;
+}
+
+.nav__link--drop {
+    display: flex;
+    align-items: center;
 }
