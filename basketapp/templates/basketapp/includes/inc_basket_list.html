@@ -6,7 +6,7 @@
     <span class="product_price">{{ item.service.price }}&nbspруб</span>
     <input type="number" name="{{ item.pk }}" min="0" value="{{ item.quantity }}">
     <!-- <span class="product_cost">{{ item.cost }}&nbspруб</span> -->
-    <a href="{% url 'basket:remove' item.pk %}" class="btn  btn-danger  ml-4  mr-4  p-1" role="button">
+    <a href="{% url 'basket:remove' item.pk %}" class="btn  btn-outline-danger  ml-4  mr-4" role="button">
         удалить
     </a>
 </div>
