@@ -22,4 +22,5 @@ services:
       - .:/code
     ports:
       - 8000:8000
+      - 3000:3000
     restart: always
