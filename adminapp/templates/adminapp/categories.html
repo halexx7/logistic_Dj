@@ -13,7 +13,7 @@
         <div class="category_actions">
             <a class="btn__admin  bg-warning text-dark" href="{% url 'admin:products' object.pk %}" role="button">товары категории</a>
             <a class="btn__admin  text-success" href="{% url 'admin:category_update' object.pk %}" role="button">редактировать</a>
-            <a class="btn__admin text-danger" href="{% url 'admin:category_delete' object.pk %}" role="button">удалить</a>
+            <a class="btn__admin  text-danger" href="{% url 'admin:category_delete' object.pk %}" role="button">удалить</a>
         </div>
         <div class="category_desc">
             {{ object.description|title }}
