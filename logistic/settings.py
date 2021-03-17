@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "v0j3jk&^x7gyf#3%kuk=w!$i7i+f7tsho)r1)on=3h=qe+ade_"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False if os.getenv("DJANGO_PRODUCTION", default=None) else True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -89,16 +89,28 @@ WSGI_APPLICATION = "logistic.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "post",
-        "USER": "post",
-        "PASSWORD": "post",
-        "HOST": "db",
-        "PORT": 5432,
+
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "post",
+            "USER": "post",
+            "PASSWORD": "post",
+            "HOST": "db",
+            "PORT": 5432,
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "NAME": "logistic",
+            "ENGINE": "django.db.backends.postgresql",
+            "USER": "django",
+            "PASSWORD": "geekbrains",
+            "HOST": "localhost",
+        }
+    }
 
 
 # Password validation
@@ -143,7 +155,11 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+# In common case STATIC_ROOT can not be in STATICFILES_DIRS
+if DEBUG:
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 # Media files
@@ -202,18 +218,28 @@ SOCIAL_AUTH_URL_NAMESPACE = "social"
 # Load settings from file
 import json
 
-with open("tmp/secrets/vk.json", "r") as f:
-    VK = json.load(f)
+try:
+    with open("tmp/secrets/vk.json", "r") as f:
+        VK = json.load(f)
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = VK["SOCIAL_AUTH_VK_OAUTH2_APPID"]
-SOCIAL_AUTH_VK_OAUTH2_SECRET = VK["SOCIAL_AUTH_VK_OAUTH2_KEY"]
+    SOCIAL_AUTH_VK_OAUTH2_KEY = VK["SOCIAL_AUTH_VK_OAUTH2_APPID"]
+    SOCIAL_AUTH_VK_OAUTH2_SECRET = VK["SOCIAL_AUTH_VK_OAUTH2_KEY"]
 
-# Load settings from file
-with open("tmp/secrets/gh.json", "r") as f:
-    GH = json.load(f)
 
-SOCIAL_AUTH_GITHUB_KEY = GH["SOCIAL_AUTH_GITHUB_KEY"]
-SOCIAL_AUTH_GITHUB_SECRET = GH["SOCIAL_AUTH_GITHUB_SECRET"]
+except Exception as exp:
+    print("Settings loading fail: %s" % (exp))
+
+try:
+    with open("tmp/secrets/gh.json", "r") as f:
+        GH = json.load(f)
+
+    SOCIAL_AUTH_GITHUB_KEY = GH["SOCIAL_AUTH_GITHUB_KEY"]
+    SOCIAL_AUTH_GITHUB_SECRET = GH["SOCIAL_AUTH_GITHUB_SECRET"]
+
+
+except Exception as exp:
+    print("Settings loading fail: %s" % (exp))
+
 
 LOGIN_ERROR_URL = "/"
 
