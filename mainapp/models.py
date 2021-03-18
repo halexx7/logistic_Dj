@@ -27,6 +27,10 @@ class Services(models.Model):
     def __str__(self):
         return f"{self.name} ({self.category.name})"
 
+    @staticmethod
+    def get_items():
+        return Services.objects.filter(is_active=True).order_by("category", "name")
+
 
 class News(models.Model):
     title = models.CharField(verbose_name="title_news", max_length=256)
