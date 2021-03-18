@@ -56,7 +56,7 @@ def basket_edit(request, pk, quantity):
             new_basket_item.save()
         else:
             new_basket_item.delete()
-        
+
         total_q = new_basket_item.total_quantity
         total_c = new_basket_item.total_cost
 
