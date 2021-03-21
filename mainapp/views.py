@@ -18,7 +18,6 @@ def main(request):
     news = News.objects.all()
     benefits_list = Benefits.objects.all()
     team = Team.objects.all()
-    basket = get_basket(request.user)
 
     content = {
         "title": title,
