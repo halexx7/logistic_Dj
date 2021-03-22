@@ -50,6 +50,7 @@ if DEBUG:
         [
             "debug_toolbar",
             "template_profiler_panel",
+            "django_extensions",
         ]
     )
 
