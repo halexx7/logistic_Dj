@@ -67,9 +67,11 @@ def get_hot_services():
     return random.sample(list(services), 1)[0]
 
 
-def get_same_services(hot_services):
-    same_services = Services.objects.filter(category=hot_services.category).exclude(pk=hot_services.pk)[:3]
-    return same_services
+def get_same_services():
+    services = Services.objects.filter(is_active=True, category__is_active=True).select_related("category")
+    same_services = random.sample(list(services), 1)[0]
+    same_list = services.exclude(pk=same_services.pk)[:3]
+    return (same_services, same_list)
 
 
 def get_popular_goods(services):
