@@ -2,6 +2,7 @@ import datetime
 import random
 
 from django.conf import settings
+from django.core.cache import cache
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
 
@@ -9,12 +10,86 @@ from basketapp.models import Basket
 
 from .models import Benefits, Contacts, News, Services, ServicesCategory, Team
 
+def get_links_menu():
+    if settings.LOW_CACHE:
+        key = "links_menu"
+        links_menu = cache.get(key)
+        if links_menu is None:
+            # print(f'caching {key}')
+            links_menu = ServicesCategory.objects.filter(is_active=True)
+            cache.set(key, links_menu)
+        return links_menu
+    else:
+        return ServicesCategory.objects.filter(is_active=True)
+
+
+def get_category(pk):
+    if settings.LOW_CACHE:
+        key = f"category_{pk}"
+        category = cache.get(key)
+        if category is None:
+            category = get_object_or_404(ServicesCategory, pk=pk)
+            cache.set(key, category)
+        return category
+    else:
+        return get_object_or_404(ServicesCategory, pk=pk)
+
+
+def get_products():
+    if settings.LOW_CACHE:
+        key = "services"
+        services = cache.get(key)
+        if services is None:
+            services = Services.objects.filter(is_active=True, category__is_active=True).select_related("category")
+            cache.set(key, services)
+        return services
+    else:
+        return Services.objects.filter(is_active=True, category__is_active=True).select_related("category")
+
+
+def get_product(pk):
+    if settings.LOW_CACHE:
+        key = f"services_{pk}"
+        services = cache.get(key)
+        if services is None:
+            services = get_object_or_404(Services, pk=pk)
+            cache.set(key, services)
+        return services
+    else:
+        return get_object_or_404(Services, pk=pk)
+
+
+def get_products_orederd_by_price():
+    if settings.LOW_CACHE:
+        key = "products_orederd_by_price"
+        products = cache.get(key)
+        if products is None:
+            products = Services.objects.filter(is_active=True, category__is_active=True).order_by("price")
+            cache.set(key, products)
+        return products
+    else:
+        return Services.objects.filter(is_active=True, category__is_active=True).order_by("price")
+
+
+def get_products_in_category_orederd_by_price(pk):
+    if settings.LOW_CACHE:
+        key = f"products_in_category_orederd_by_price_{pk}"
+        products = cache.get(key)
+        if products is None:
+            products = Services.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by(
+                "price"
+            )
+            cache.set(key, products)
+        return products
+    else:
+        return Services.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by("price")
+
 
 def main(request):
     title = "home"
 
     caterories = ServicesCategory.objects.all()
-    services = Services.objects.all()[:4]
+    services = get_products()[:4]
     news = News.objects.all()
     benefits_list = Benefits.objects.all()
     team = Team.objects.all()
@@ -68,7 +143,7 @@ def get_hot_services():
 
 
 def get_same_services():
-    services = Services.objects.filter(is_active=True, category__is_active=True).select_related("category")
+    services = get_products()
     same_services = random.sample(list(services), 1)[0]
     same_list = services.exclude(pk=same_services.pk)[:3]
     return (same_services, same_list)
@@ -81,7 +156,7 @@ def get_popular_goods(services):
 
 def services(request, pk=None, page=1):
     title = "services"
-    links_menu = ServicesCategory.objects.all()
+    links_menu = get_links_menu()
     basket = get_basket(request.user)
 
     if request.user.is_authenticated:
@@ -90,12 +165,10 @@ def services(request, pk=None, page=1):
     if pk is not None:
         if pk == "0":
             category = {"pk": 0, "name": "All"}
-            services = Services.objects.filter(is_active=True, category__is_active=True).order_by("price")
+            services = get_products_orederd_by_price()
         else:
-            category = get_object_or_404(ServicesCategory, pk=pk)
-            services = Services.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by(
-                "price"
-            )
+            category = get_category(pk)
+            services = get_products_orederd_by_price()
 
         paginator = Paginator(services, 2)
         try:
