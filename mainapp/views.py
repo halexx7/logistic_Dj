@@ -5,6 +5,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
+from django.views.decorators.cache import cache_page
 
 from basketapp.models import Basket
 
@@ -213,6 +214,7 @@ def service(request, pk):
     return render(request, "mainapp/service.html", content)
 
 
+@cache_page(600)
 def contact(request):
     title = "contacts"
     visit_date = datetime.datetime.now()
