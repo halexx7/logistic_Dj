@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mainapp', '0004_services_is_active'),
+        ("mainapp", "0004_services_is_active"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='services',
-            name='is_active',
-            field=models.BooleanField(db_index=True, default=True, verbose_name='services_activ'),
+            model_name="services",
+            name="is_active",
+            field=models.BooleanField(db_index=True, default=True, verbose_name="services_activ"),
         ),
         migrations.AlterField(
-            model_name='servicescategory',
-            name='is_active',
-            field=models.BooleanField(db_index=True, default=True, verbose_name='category_is_active'),
+            model_name="servicescategory",
+            name="is_active",
+            field=models.BooleanField(db_index=True, default=True, verbose_name="category_is_active"),
         ),
     ]
