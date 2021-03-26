@@ -10,6 +10,7 @@ from basketapp.models import Basket
 
 from .models import Benefits, Contacts, News, Services, ServicesCategory, Team
 
+
 def get_links_menu():
     if settings.LOW_CACHE:
         key = "links_menu"
