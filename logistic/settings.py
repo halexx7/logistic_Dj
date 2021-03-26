@@ -109,12 +109,11 @@ WSGI_APPLICATION = "logistic.wsgi.application"
 if DEBUG:
     DATABASES = {
         "default": {
+            "NAME": "logistic",
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": "post",
-            "USER": "post",
-            "PASSWORD": "post",
-            "HOST": "db",
-            "PORT": 5432,
+            "USER": "django",
+            "PASSWORD": "geekbrains",
+            "HOST": "localhost",
         }
     }
 else:
