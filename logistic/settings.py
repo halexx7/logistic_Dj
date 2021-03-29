@@ -66,7 +66,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middlewclearare.clickjacking.XFrameOptionsMiddleware",
     "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
@@ -109,12 +109,11 @@ WSGI_APPLICATION = "logistic.wsgi.application"
 if DEBUG:
     DATABASES = {
         "default": {
+            "NAME": "logistic",
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": "post",
-            "USER": "post",
-            "PASSWORD": "post",
-            "HOST": "db",
-            "PORT": 5432,
+            "USER": "django",
+            "PASSWORD": "geekbrains",
+            "HOST": "localhost",
         }
     }
 else:
@@ -306,3 +305,18 @@ if DEBUG:
         "debug_toolbar.panels.profiling.ProfilingPanel",
         "template_profiler_panel.panels.template.TemplateProfilerPanel",
     ]
+
+CACHE_MIDDLEWARE_ALIAS = "default"
+CACHE_MIDDLEWARE_SECONDS = 120
+CACHE_MIDDLEWARE_KEY_PREFIX = "geekbrains"
+
+# Be carefull if you have Windows! Install Memcached before run project!
+#     https://www.ubergizmo.com/how-to/install-memcached-windows/
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.memcached.MemcachedCache",
+        "LOCATION": "127.0.0.1:11211",
+    }
+}
+
+LOW_CACHE = True
