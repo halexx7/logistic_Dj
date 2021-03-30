@@ -108,15 +108,15 @@ WSGI_APPLICATION = "logistic.wsgi.application"
 
 if DEBUG:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'post',
-            'USER': 'post',
-            'PASSWORD': 'post',
-            'HOST': 'db',
-            'PORT': 5432,
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "post",
+            "USER": "post",
+            "PASSWORD": "post",
+            "HOST": "db",
+            "PORT": 5432,
         }
-}
+    }
 else:
     DATABASES = {
         "default": {

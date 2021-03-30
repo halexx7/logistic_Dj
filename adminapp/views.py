@@ -162,3 +162,25 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
         self.object.is_active = False
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
+
+
+from django.db import connection
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+
+
+def db_profile_by_type(prefix, type, queries):
+    update_queries = list(filter(lambda x: type in x["sql"], queries))
+    print(f"db_profile {type} for {prefix}:")
+    [print(query["sql"]) for query in update_queries]
+
+
+@receiver(pre_save, sender=ServicesCategory)
+def service_is_active_update_servicecategory_save(sender, instance, **kwargs):
+    if instance.pk:
+        if instance.is_active:
+            instance.services_set.update(is_active=True)
+        else:
+            instance.services_set.update(is_active=False)
+
+        # db_profile_by_type(sender, 'UPDATE', connection.queries)
