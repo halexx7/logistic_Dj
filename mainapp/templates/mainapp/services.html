@@ -39,7 +39,7 @@
                         <h3 class="red">горячее предложение</h3>
                     </div>
                     <div class="wrap__btn  btn--hot">
-                        <a class="btn btn--block btn--orange btn--order" href="{% url 'basket:add' hot.pk %}" type="button"><span>order</span></a>
+                        <a class="btn__main  btn--block btn--orange btn--order" href="{% url 'basket:add' hot.pk %}" type="button"><span>order</span></a>
                     </div>    
                 </div>
 
@@ -62,7 +62,7 @@
                                     <p class="intro__services-text">{{ service.lifting }}</p>
                                 </div>
                                 <div class="wrap__btn">
-                                    <a class="btn btn--block btn--orange btn--order" href="{% url 'basket:add' service.pk %}" type="button"><span>order</span></a>
+                                    <a class="btn__main  btn--block btn--orange btn--order" href="{% url 'basket:add' service.pk %}" type="button"><span>order</span></a>
                                 </div>
                             </div><!-- /.team__items -->
                         </div><!-- /.team__col -->

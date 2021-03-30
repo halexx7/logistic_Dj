@@ -3722,7 +3722,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
     background: url("../img/icon-mail-black.svg") left 15px top 35px no-repeat;
 }
 
-.btn {
+.btn__main {
     display: inline-block;
     vertical-align: middle;
     padding: 15px 45px;
@@ -3741,7 +3741,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
     border-radius: 5px;
 }
 
-.btn:before {
+.btn__main:before {
     content: "";
     display: block;
     width: 100%;
@@ -3757,12 +3757,12 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
     transition: opacity .1s linear;
 }
 
-.btn span {
+.btn__main span {
     position: relative;
     z-index: 2;
 }
 
-.btn:hover:before {
+.btn__main:hover:before {
     opacity: .15;
 }
 
@@ -5610,8 +5610,7 @@ img.basket__img {
 .user_record .user_name {
     display: block;
     float: left;
-    margin-top: 15px;
-    margin-left: 25px;
+    margin: 15px;
     width: 175px;
 }
 
@@ -5621,38 +5620,34 @@ img.basket__img {
 
 .user_record .user_name p {
     /*font-weight: bold;*/
-    margin: 10px auto;
+    margin: 25px auto;
 }
 
 .user_record .user_email {
     display: block;
     float: left;
-    margin-top: 40px;
-    margin-left: 25px;
+    margin: 15px;
     width: 175px;
 }
 
 .user_record .user_age {
     display: block;
     float: left;
-    margin-top: 40px;
-    margin-left: 25px;
+    margin: 15px;
     width: 45px;
 }
 
 .user_record .user_role {
     display: block;
     float: left;
-    margin-top: 15px;
-    margin-left: 25px;
+    margin: 15px;
     width: 185px;
 }
 
 .user_record .user_lastlogin {
     display: block;
     float: left;
-    margin-top: 40px;
-    margin-left: 25px;
+    margin: 15px;
     width: 175px;
 }
 
@@ -5723,11 +5718,22 @@ img.basket__img {
 }
 
 .btn__admin {
-    margin: 5px 0;
-    padding: 3px 5px;
     display: inline-block;
-
-    text-align: center; 
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .new_user {
