@@ -24,3 +24,17 @@ services:
       - 8000:8000
       - 3000:3000
     restart: always
+    links:
+    - db
+    - cache
+    depends_on:
+      - db
+      - cache
+
+  cache:
+    image: memcached
+    ports:
+      - "11211:11211"
+    entrypoint:
+      - memcached
+      - -m 128

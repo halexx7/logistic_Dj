@@ -66,7 +66,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middlewclearare.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
@@ -108,14 +108,15 @@ WSGI_APPLICATION = "logistic.wsgi.application"
 
 if DEBUG:
     DATABASES = {
-        "default": {
-            "NAME": "logistic",
-            "ENGINE": "django.db.backends.postgresql",
-            "USER": "django",
-            "PASSWORD": "geekbrains",
-            "HOST": "localhost",
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'post',
+            'USER': 'post',
+            'PASSWORD': 'post',
+            'HOST': 'db',
+            'PORT': 5432,
         }
-    }
+}
 else:
     DATABASES = {
         "default": {
@@ -315,7 +316,7 @@ CACHE_MIDDLEWARE_KEY_PREFIX = "geekbrains"
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.memcached.MemcachedCache",
-        "LOCATION": "127.0.0.1:11211",
+        "LOCATION": "cache:11211",
     }
 }
 
