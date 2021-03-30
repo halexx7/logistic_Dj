@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import F
 from django.shortcuts import HttpResponseRedirect, get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic.detail import DetailView
@@ -85,16 +86,22 @@ class ProductCategoryUpdateView(LoginRequiredMixin, UpdateView):
     model = ServicesCategory
     template_name = "adminapp/category_update.html"
     success_url = reverse_lazy("admin:categories")
-    fields = "__all__"
+    form_class = ProductCategoryEditForm
 
     def get_context_data(self, **kwargs):
         context = super(ProductCategoryUpdateView, self).get_context_data(**kwargs)
         context["title"] = "категории/редактирование"
         return context
 
-    def get_queryset(self):
-        qs = super().get_queryset()
-        return qs
+    def form_valid(self, form):
+        if "discount" in form.cleaned_data:
+            discount = form.cleaned_data["discount"]
+            if discount:
+                # print(f"применяется скидка {discount}% к товарам категории {self.object.name}")
+                self.object.services_set.update(price=F("price") * (1 - discount / 100))
+                db_profile_by_type(self.__class__, "UPDATE", connection.queries)
+
+        return super().form_valid(form)
 
 
 class ProductCategoryDeleteView(LoginRequiredMixin, DeleteView):
