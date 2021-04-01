@@ -166,7 +166,7 @@ def services(request, pk=None, page=1):
             services = get_products_orederd_by_price()
         else:
             category = get_category(pk)
-            services = get_products_orederd_by_price()
+            services = get_products_in_category_orederd_by_price(pk)
 
         paginator = Paginator(services, 2)
         try:
