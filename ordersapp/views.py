@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import transaction
+from django.db.models import F
 from django.db.models.signals import pre_delete, pre_save
 from django.dispatch import receiver
 from django.forms import inlineformset_factory
@@ -34,7 +35,7 @@ class OrderItemsCreate(CreateView):
         if self.request.POST:
             formset = OrderFormSet(self.request.POST)
         else:
-            basket_items = Basket.get_items(self.request.user)
+            basket_items = self.request.user.basket.select_related().order_by("service__category")
             if len(basket_items):
                 OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemForm, extra=len(basket_items))
                 formset = OrderFormSet()
@@ -130,18 +131,16 @@ def order_forming_complete(request, pk):
 @receiver(pre_save, sender=Basket)
 def product_quantity_update_save(instance, sender, **kwargs):
     if instance.pk:
-        """If user change quantity in order or basket"""
-        instance.service.quantity -= instance.quantity - sender.get_item(instance.pk).quantity
+        instance.service.quantity = F("quantity") - (instance.quantity - sender.get_item(instance.pk).quantity)
     else:
-        """If user create order or basket"""
-        instance.service.quantity -= instance.quantity
+        instance.service.quantity = F("quantity") - instance.quantity
     instance.service.save()
 
 
 @receiver(pre_delete, sender=OrderItem)
 @receiver(pre_delete, sender=Basket)
 def product_quantity_update_delete(instance, **kwargs):
-    instance.service.quantity += instance.quantity
+    instance.service.quantity = F("quantity") + instance.quantity
     instance.service.save()
 
 

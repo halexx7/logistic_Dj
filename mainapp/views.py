@@ -159,10 +159,6 @@ def get_popular_goods(services):
 def services(request, pk=None, page=1):
     title = "services"
     links_menu = get_links_menu()
-    basket = get_basket(request.user)
-
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
 
     if pk is not None:
         if pk == "0":
@@ -170,7 +166,7 @@ def services(request, pk=None, page=1):
             services = get_products_orederd_by_price()
         else:
             category = get_category(pk)
-            services = get_products_orederd_by_price()
+            services = get_products_in_category_orederd_by_price(pk)
 
         paginator = Paginator(services, 2)
         try:

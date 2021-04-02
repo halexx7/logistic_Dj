@@ -48,8 +48,8 @@ INSTALLED_APPS = [
 if DEBUG:
     INSTALLED_APPS.extend(
         [
-            "debug_toolbar",
-            "template_profiler_panel",
+            # "debug_toolbar",
+            # "template_profiler_panel",
             "django_extensions",
         ]
     )
@@ -70,12 +70,12 @@ MIDDLEWARE = [
     "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
-if DEBUG:
-    MIDDLEWARE.extend(
-        [
-            "debug_toolbar.middleware.DebugToolbarMiddleware",
-        ]
-    )
+# if DEBUG:
+#     MIDDLEWARE.extend(
+#         [
+#             "debug_toolbar.middleware.DebugToolbarMiddleware",
+#         ]
+#     )
 
 ROOT_URLCONF = "logistic.urls"
 
@@ -108,15 +108,15 @@ WSGI_APPLICATION = "logistic.wsgi.application"
 
 if DEBUG:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'post',
-            'USER': 'post',
-            'PASSWORD': 'post',
-            'HOST': 'db',
-            'PORT': 5432,
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "post",
+            "USER": "post",
+            "PASSWORD": "post",
+            "HOST": "db",
+            "PORT": 5432,
         }
-}
+    }
 else:
     DATABASES = {
         "default": {
@@ -280,32 +280,32 @@ SOCIAL_AUTH_PIPELINE = (
 # INTERNAL_IPS = ["127.0.0.1"]
 
 # Debgu tool bar settings
-if DEBUG:
+# if DEBUG:
 
-    def show_toolbar(request):
-        return True
+#     def show_toolbar(request):
+#         return True
 
-    DEBUG_TOOLBAR_CONFIG = {
-        "SHOW_TOOLBAR_CALLBACK": show_toolbar,
-    }
+#     DEBUG_TOOLBAR_CONFIG = {
+#         "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+#     }
 
-    DEBUG_TOOLBAR_PANELS = [
-        # "ddt_request_history.panels.request_history.RequestHistoryPanel",
-        "debug_toolbar.panels.versions.VersionsPanel",
-        "debug_toolbar.panels.timer.TimerPanel",
-        "debug_toolbar.panels.settings.SettingsPanel",
-        "debug_toolbar.panels.headers.HeadersPanel",
-        "debug_toolbar.panels.request.RequestPanel",
-        "debug_toolbar.panels.sql.SQLPanel",
-        "debug_toolbar.panels.templates.TemplatesPanel",
-        "debug_toolbar.panels.staticfiles.StaticFilesPanel",
-        "debug_toolbar.panels.cache.CachePanel",
-        "debug_toolbar.panels.signals.SignalsPanel",
-        "debug_toolbar.panels.logging.LoggingPanel",
-        "debug_toolbar.panels.redirects.RedirectsPanel",
-        "debug_toolbar.panels.profiling.ProfilingPanel",
-        "template_profiler_panel.panels.template.TemplateProfilerPanel",
-    ]
+#     DEBUG_TOOLBAR_PANELS = [
+#         # "ddt_request_history.panels.request_history.RequestHistoryPanel",
+#         "debug_toolbar.panels.versions.VersionsPanel",
+#         "debug_toolbar.panels.timer.TimerPanel",
+#         "debug_toolbar.panels.settings.SettingsPanel",
+#         "debug_toolbar.panels.headers.HeadersPanel",
+#         "debug_toolbar.panels.request.RequestPanel",
+#         "debug_toolbar.panels.sql.SQLPanel",
+#         "debug_toolbar.panels.templates.TemplatesPanel",
+#         "debug_toolbar.panels.staticfiles.StaticFilesPanel",
+#         "debug_toolbar.panels.cache.CachePanel",
+#         "debug_toolbar.panels.signals.SignalsPanel",
+#         "debug_toolbar.panels.logging.LoggingPanel",
+#         "debug_toolbar.panels.redirects.RedirectsPanel",
+#         "debug_toolbar.panels.profiling.ProfilingPanel",
+#         "template_profiler_panel.panels.template.TemplateProfilerPanel",
+#     ]
 
 CACHE_MIDDLEWARE_ALIAS = "default"
 CACHE_MIDDLEWARE_SECONDS = 120

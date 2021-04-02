@@ -12,19 +12,19 @@
 <p>
 <table class="table">
     <thead>
-        <tr>
+        <tr class="row">
             <th scope="col" class="col-4">Изображение</th>
             <th scope="col" class="col-8">Описание</th>
         </tr>
     </thead>
     <tbody>
         {% for item in object.orderitems.select_related %}
-        <tr>
-            <td>
+        <tr class="row">
+            <td class="col-4">
                 <img src="{{ MEDIA_URL }}{{ item.service.image }}" alt="{{ item.service.short_desc }}"
                     style="min-width: 250px; max-width: 250px;">
             </td>
-            <td>
+            <td class="col-8">
                 <span class="category_name">{{ item.service.category.name }}</span>
                 <span class="product_name">{{ item.service.name }}</span>
                 <span class="product_price">{{ item.service.price }}&nbspруб</span>
